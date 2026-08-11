@@ -1,0 +1,25 @@
+[
+    {
+        "category": "Category 1",
+        "products": [
+            {
+                "name": "Inugiri Pouch",
+                "img_path": "/src/assets/img/IMG_3662.jpg",
+                "cost": "10.99",
+                "availability": "In Stock"
+            },
+            {
+                "name": "Sliced Strawberry Cake Jewelry Box",
+                "img_path": "/src/assets/img/IMG_5062.jpg",
+                "cost": "19.99",
+                "availability": "Out of Stock"
+            },
+            {
+                "name": "Bread Sticker Sheet",
+                "img_path": "/src/assets/img/gggggg.jpg",
+                "cost": "5.99",
+                "availability": "Preorder"
+            }
+        ]
+    }
+]
