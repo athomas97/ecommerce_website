@@ -1,5 +1,3 @@
-import { useRef, useState } from 'react';
-
 import products from '../assets/products.json'
 import ProductCard from '../components/ProductCard'
 
@@ -23,11 +21,11 @@ function Catalog() {
             <div>
                 {products_set.map((product) => (
                     <ProductCard
-                    key={product.name}
-                    name={product.name}
-                    img_path={product.img_path}
-                    cost={product.cost}
-                    availability={product.availability}
+                        key={product.name}
+                        name={product.name}
+                        img_path={product.img_path}
+                        cost={product.cost}
+                        availability={product.availability}
                     />
                 ))}
             </div>

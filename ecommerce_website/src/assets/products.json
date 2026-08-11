@@ -3,22 +3,25 @@
         "category": "Category 1",
         "products": [
             {
-                "name": "Inugiri Pouch",
-                "img_path": "/src/assets/img/IMG_3662.jpg",
-                "cost": "10.99",
-                "availability": "In Stock"
+                "name": "Cinnabari Serum",
+                "img_path": "/src/assets/img/product_1.jpg",
+                "cost": "20.99",
+                "availability": "In Stock",
+                "created_at": "2026-03-10T18:30:00Z"
             },
             {
-                "name": "Sliced Strawberry Cake Jewelry Box",
-                "img_path": "/src/assets/img/IMG_5062.jpg",
-                "cost": "19.99",
-                "availability": "Out of Stock"
+                "name": "Beauty Algorithm Gummy",
+                "img_path": "/src/assets/img/product_2.jpg",
+                "cost": "49.99",
+                "availability": "Out of Stock",
+                "created_at": "2026-06-25T05:23:00Z"
             },
             {
-                "name": "Bread Sticker Sheet",
-                "img_path": "/src/assets/img/gggggg.jpg",
-                "cost": "5.99",
-                "availability": "Preorder"
+                "name": "Vitamin Face Serum",
+                "img_path": "/src/assets/img/product_3.jpg",
+                "cost": "32.99",
+                "availability": "Preorder",
+                "created_at": "2025-12-21T20:45:00Z"
             }
         ]
     }
