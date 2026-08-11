@@ -12,6 +12,18 @@
   }
 }
 
+button {
+  padding: 6px;
+  background: rgb(200, 87, 164);
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background: rgb(169, 63, 135);
+  }
+}
+
 /* Product Card */
 .product-card {
   display: inline-flex;
@@ -74,4 +86,87 @@
   justify-content: space-between;
   gap: 10px;
   padding: 10px 32px;
+}
+
+/* Multi Select DropDown */
+.checkbox-container {
+  display: flex;
+  gap: 10px;
+  background-color: rgb(211, 24, 189);
+  width: 100%;
+  padding: 10px 8px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(240, 66, 220);
+  }
+}
+
+.filter-btn-popup {
+  display: none;
+  position: absolute;
+  top: 100%;
+  margin-top: 10%;
+  left: 0px;
+  min-width: 200px;
+  z-index: 1;
+  background-color: rgb(154, 149, 152);
+}
+
+/* Price Input */
+.price-input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  justify-items: space-around;
+  justify-self: space-around;
+  gap: 0px;
+  border: 1px solid #2f2f2f;
+  background-color: #f1f1f1;
+  padding: 5px 10px;
+  cursor: text;
+  width: 70px;
+  height: 40px;
+  color: black;
+
+  &:hover {
+    border: 2px solid #2f2f2f;
+  }
+}
+
+.price-input-container p {
+  text-align: left;
+  font-size: 18px;
+  transition: font-size 0.2s ease, display 0.1s;
+}
+
+.price-input-container input {
+  display: none;
+  background-color: rgba(200, 87, 164, 0);
+}
+
+.price-input-container.is-open input {
+  display: block;
+  border: none;
+  color: black;
+}
+
+input:focus {
+  border: none;
+  outline: none;
+}
+
+.price-input-container.is-open p {
+  font-size: 12px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
 }
