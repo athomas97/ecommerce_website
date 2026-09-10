@@ -1,28 +1,23 @@
 import { useRef, useState } from 'react';
 import { sort } from '../utils/Sorting.utils'
 import { filter } from '../utils/Filter.utils'
+import { createFilters } from '../utils/Common.utils'
+import { AVAILABILITY, PRODUCT_CATEGORY } from '../constants'
 
 import products from '../assets/products.json'
 import ProductCard from '../components/ProductCard'
+import SortBar from '../components/SortBar'
 import FilterBar from '../components/FilterBar'
-import FilterSideBar from '../components/FilterSideBar'
 
 function Catalog({parent_cart, onCartChange}) {
     const [sortMethod, setSortMethod] = useState("");
     const [filters, setFilters] = useState({
-        "availability": {
-            "in-stock": false,
-            "out-of-stock": false,
-            "preorder": false
-        },
+        "availability": createFilters(AVAILABILITY),
         "price": {
             "min": '',
             "max": '' 
         },
-        "category": {
-            "category-1": false,
-            "category-2": false,
-        }
+        "category": createFilters(PRODUCT_CATEGORY),
     });
     const [cart, updateCart] = useState(parent_cart);
 
@@ -40,6 +35,7 @@ function Catalog({parent_cart, onCartChange}) {
                 ...prevFilters,
                 ...data,
             };
+            // TODO: Handles errors if availability is not a valid type
             if (data.availability) {
                 nextFilters.availability = {
                 ...prevFilters.availability,
@@ -52,6 +48,7 @@ function Catalog({parent_cart, onCartChange}) {
                 ...data.price,
                 };
             }
+            // TODO: Handles errors if category is not a valid type
             if (data.category) {
                 nextFilters.category = {
                     ...prevFilters.category,
@@ -71,17 +68,14 @@ function Catalog({parent_cart, onCartChange}) {
     // Render page
     return (
         <div className="page">
-            {/* TODO: Change FilterBar -> SortBar */}
-            {/* TODO: Change FilterSideBar -> FilterBar */}
             <p>Cart: {JSON.stringify(cart)}</p>
             <p>Cart Length: {Object.keys(cart).length}</p>
-            <FilterBar
+            <SortBar
                 numProducts={products_set.length}
-                onFilterChange={handleFilterChange}
                 onDropDownSelect={handleSortMethodChange}
             />
             <div id="catalog-pg-content">
-                <FilterSideBar
+                <FilterBar
                     className="sticky"
                     numProducts={products_set.length}
                     onFilterChange={handleFilterChange}
