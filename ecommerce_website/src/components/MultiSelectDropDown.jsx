@@ -41,40 +41,9 @@ function MultiSelectDropDown({ btnTxt, filterKey, checkboxes, onChangeValue }) {
   };
 
   return (
-    <div
-      ref={filterRef}
-      style={{
-        display: 'flex',
-        alignItems: 'center', 
-        gap: '10px',
-        position: 'relative' 
-      }}
-    >
-      <button
-        onClick={() => {
-          setShowDropdown((prev) => !prev);
-        }}
-      >
-        {btnTxt}
-      </button>
-      <div
-        className={
-          showDropdown ? 'filter-btn-popup is-open' : 'filter-btn-popup'
-        }
-        style={{
-          display: showDropdown ? 'flex' : 'none',
-          alignItems: 'center',
-          gap: '15px'
-        }}
-      >
-        <div
-          style={{
-            display: 'flex',
-            width: '100%',
-            flexDirection: 'column',
-            position: 'relative' 
-          }}
-        >
+    <div className="filter-catagory-container">
+      <h5> {btnTxt} </h5>
+        <div className="checkbox-list">
           {checkboxes.map((checkbox) => (
             <Checkbox
               id={checkbox?.id}
@@ -84,8 +53,7 @@ function MultiSelectDropDown({ btnTxt, filterKey, checkboxes, onChangeValue }) {
               }
             />
           ))}
-        </div>
-      </div>
+      </div> 
     </div>
   );
 }

@@ -39,34 +39,8 @@ function PriceRangeFilter({ onChangeValue }) {
   };
 
   return (
-    <div
-      ref={filterRef}
-      style={{
-        display: 'flex',
-        alignItems: 'center', 
-        gap: '10px',
-        position: 'relative' 
-      }}
-    >
-      <button
-        type="Price"
-        onClick={() => {
-          setShowDropdown((prev) => !prev);
-        }}
-      >
-        Price
-      </button>
-      <div
-        className={
-          showDropdown ? 'filter-btn-popup is-open' : 'filter-btn-popup'
-        }
-        style={{
-          display: showDropdown ? 'flex' : 'none',
-          alignItems: 'center',
-          gap: '15px',
-          padding: '10px 10px'
-        }}
-      >
+    <div className="filter-catagory-container">
+      <h5> Price </h5>
         <PriceInput
           label_text="From"
           onChangeValue={handleMinPrice}
@@ -75,7 +49,6 @@ function PriceRangeFilter({ onChangeValue }) {
           label_text="To"
           onChangeValue={handleMaxPrice}
         />
-      </div>
     </div>
   );
 }

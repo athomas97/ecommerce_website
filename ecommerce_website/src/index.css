@@ -1,9 +1,11 @@
 body {
   margin: 0;
+  padding: 0;
 }
 
 #root {
-  width: 1126px;
+  /* width: 1126px; */
+  padding: 5px 50px;
   max-width: 100%;
   margin: 0 auto;
   text-align: center;

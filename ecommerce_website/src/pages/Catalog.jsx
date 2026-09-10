@@ -5,6 +5,7 @@ import { filter } from '../utils/Filter.utils'
 import products from '../assets/products.json'
 import ProductCard from '../components/ProductCard'
 import FilterBar from '../components/FilterBar'
+import FilterSideBar from '../components/FilterSideBar'
 
 function Catalog() {
     const [sortMethod, setSortMethod] = useState("");
@@ -64,26 +65,36 @@ function Catalog() {
 
     // Render page
     return (
-        <>
-        <FilterBar
-            numProducts={products_set.length}
-            onFilterChange={handleFilterChange}
-            onDropDownSelect={handleSortMethodChange}
-        />
-        <section id="center">
-            <div>
-                {sorted_products.map((product) => (
-                    <ProductCard
-                        key={product.name}
-                        name={product.name}
-                        img_path={product.img_path}
-                        cost={product.cost}
-                        availability={product.availability}
-                    />
-                ))}
+        <div className="page">
+            {/* TODO: Change FilterBar -> SortBar */}
+            {/* TODO: Change FilterSideBar -> FilterBar */}
+            <FilterBar
+                numProducts={products_set.length}
+                onFilterChange={handleFilterChange}
+                onDropDownSelect={handleSortMethodChange}
+            />
+            <div id="catalog-pg-content">
+                <FilterSideBar
+                    className="sticky"
+                    numProducts={products_set.length}
+                    onFilterChange={handleFilterChange}
+                    onDropDownSelect={handleSortMethodChange}
+                />
+                <div id="center">
+                <div className="product-grid">
+                    {sorted_products.map((product) => (
+                        <ProductCard
+                            key={product.name}
+                            name={product.name}
+                            img_path={product.img_path}
+                            cost={product.cost}
+                            availability={product.availability}
+                        />
+                    ))}
+                </div>
+                </div>
             </div>
-        </section>
-        </>
+        </div>
     )
 }
 

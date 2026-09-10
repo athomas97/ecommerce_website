@@ -3,7 +3,7 @@ import { useState } from 'react';
 import PriceRangeFilter from './PriceRangeFilter'
 import MultiSelectDropDown from './MultiSelectDropDown'
 
-function FilterBar({ numProducts, onFilterChange, onDropDownSelect }) {
+function FilterSideBar({ numProducts, onFilterChange, onDropDownSelect }) {
     const [selectedValue, setSelectedValue] = useState('');
     const [filters, setFilters] = useState({
         "availability": {
@@ -55,11 +55,27 @@ function FilterBar({ numProducts, onFilterChange, onDropDownSelect }) {
 
     return (
         <>
-        <div id="filter-bar">
+        <div id="filter-bar-vertical">
             {/* <div style={{ display: 'flex', gap: '20px' }}> */}
-                {/* TODO: Make into a sidebar thats fixed that the top
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                    <b><p>Filter:</p></b>
+                {/* TODO: Make into a sidebar thats fixed that the top */}
+                    {/* <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}> */}
+                    <b><h4>Filter:</h4></b>
+                    <PriceRangeFilter onChangeValue={handleFilterChange} />
+                    <MultiSelectDropDown
+                        btnTxt="Category"
+                        filterKey="category"
+                        checkboxes={[
+                        {
+                            "id": "category-1",
+                            "label_name": "Category 1",
+                        },
+                        {
+                            "id": "category-2",
+                            "label_name": "Category 2",
+                        }
+                        ]}
+                        onChangeValue={handleFilterChange}
+                    />
                     <MultiSelectDropDown
                         btnTxt="Availability"
                         filterKey="availability"
@@ -79,38 +95,11 @@ function FilterBar({ numProducts, onFilterChange, onDropDownSelect }) {
                         ]}
                         onChangeValue={handleFilterChange}
                     />
-                    <PriceRangeFilter onChangeValue={handleFilterChange} />
-                    <MultiSelectDropDown
-                        btnTxt="Category"
-                        filterKey="category"
-                        checkboxes={[
-                        {
-                            "id": "category-1",
-                            "label_name": "Category 1",
-                        },
-                        {
-                            "id": "category-2",
-                            "label_name": "Category 2",
-                        }
-                        ]}
-                        onChangeValue={handleFilterChange}
-                    />
-                </div> */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                    <b><p>Sort By:</p></b>
-                    <label for="sort_by"></label>
-                    <select id="sort_by" name="sort_by" value={selectedValue} onChange={handleDropdownChange}>
-                        <option value="newest">Newest</option>
-                        <option value="oldest">Oldest</option>
-                        <option value="price_low_to_high">Price: Low to High</option>
-                        <option value="price_high_to_low">Price: High to Low</option>
-                    </select>
-                </div>
+                {/* </div> */}
             {/* </div> */}
-            <i><p id="product-number">{numProducts} Products</p></i>
         </div>
         </>
     );
 }
 
-export default FilterBar;
+export default FilterSideBar;
