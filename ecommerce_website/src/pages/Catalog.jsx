@@ -7,7 +7,7 @@ import ProductCard from '../components/ProductCard'
 import FilterBar from '../components/FilterBar'
 import FilterSideBar from '../components/FilterSideBar'
 
-function Catalog() {
+function Catalog({parent_cart, onCartChange}) {
     const [sortMethod, setSortMethod] = useState("");
     const [filters, setFilters] = useState({
         "availability": {
@@ -24,8 +24,13 @@ function Catalog() {
             "category-2": false,
         }
     });
+    const [cart, updateCart] = useState(parent_cart);
 
-    // Callback Function
+    // Callback Functions
+    const handleCartChange = (data) => {
+        updateCart(data);
+        onCartChange(data);
+    };
     const handleSortMethodChange = (data) => {
         setSortMethod(data);
     };
@@ -68,6 +73,8 @@ function Catalog() {
         <div className="page">
             {/* TODO: Change FilterBar -> SortBar */}
             {/* TODO: Change FilterSideBar -> FilterBar */}
+            <p>Cart: {JSON.stringify(cart)}</p>
+            <p>Cart Length: {Object.keys(cart).length}</p>
             <FilterBar
                 numProducts={products_set.length}
                 onFilterChange={handleFilterChange}
@@ -88,7 +95,9 @@ function Catalog() {
                             name={product.name}
                             img_path={product.img_path}
                             cost={product.cost}
+                            parent_cart={cart}
                             availability={product.availability}
+                            onCartChange={handleCartChange}
                         />
                     ))}
                 </div>

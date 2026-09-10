@@ -69,6 +69,15 @@ button {
   }
 }
 
+.product-card .remove-btn {
+  width: 20px;
+  height: 20px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .product-card .product-info {
   display: flex;
   width: 100%;
