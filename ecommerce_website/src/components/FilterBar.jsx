@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { createFilters, createCheckboxes } from '../utils/Common.utils'
+import { AVAILABILITY, PRODUCT_CATEGORY } from '../constants'
 
 import PriceRangeFilter from './PriceRangeFilter'
 import MultiSelectDropDown from './MultiSelectDropDown'
@@ -6,19 +8,12 @@ import MultiSelectDropDown from './MultiSelectDropDown'
 function FilterBar({ numProducts, onFilterChange, onDropDownSelect }) {
     const [selectedValue, setSelectedValue] = useState('');
     const [filters, setFilters] = useState({
-        "availability": {
-            "in-stock": false,
-            "out-of-stock": false,
-            "preorder": false
-        },
+        "availability": createFilters(AVAILABILITY),
         "price": {
             "min": '',
             "max": '' 
         },
-        "category": {
-            "category-1": false,
-            "category-2": false,
-        }
+        "category": createFilters(PRODUCT_CATEGORY),
     });
 
     // Callback functions
@@ -30,6 +25,7 @@ function FilterBar({ numProducts, onFilterChange, onDropDownSelect }) {
     const handleFilterChange = (nextRange) => {
         setFilters((prevFilters) => {
             const nextFilters = { ...prevFilters };
+            // TODO: Handles errors if availability is not a valid type
             if (nextRange.availability) {
                 nextFilters.availability = {
                     ...prevFilters.availability,
@@ -42,6 +38,7 @@ function FilterBar({ numProducts, onFilterChange, onDropDownSelect }) {
                     ...nextRange.price,
                 };
             }
+            // TODO: Handles errors if category is not a valid type
             if (nextRange.category) {
                 nextFilters.category = {
                     ...prevFilters.category,
@@ -54,59 +51,23 @@ function FilterBar({ numProducts, onFilterChange, onDropDownSelect }) {
     };
 
     return (
-        <>
+        // TODO: Make filter bar sticky to the top
         <div id="filter-bar">
-            <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                <p>Filter:</p>
-                <MultiSelectDropDown
-                    btnTxt="Availability"
-                    filterKey="availability"
-                    checkboxes={[
-                    {
-                        "id": "in-stock",
-                        "label_name": "In Stock",
-                    },
-                    {
-                        "id": "out-of-stock",
-                        "label_name": "Out of Stock",
-                    },
-                    {
-                        "id": "preorder",
-                        "label_name": "Preorder",
-                    }
-                    ]}
-                    onChangeValue={handleFilterChange}
-                />
-                <PriceRangeFilter onChangeValue={handleFilterChange} />
-                <MultiSelectDropDown
-                    btnTxt="Category"
-                    filterKey="category"
-                    checkboxes={[
-                    {
-                        "id": "category-1",
-                        "label_name": "Category 1",
-                    },
-                    {
-                        "id": "category-2",
-                        "label_name": "Category 2",
-                    }
-                    ]}
-                    onChangeValue={handleFilterChange}
-                />
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                <p>Sort By:</p>
-                <label for="sort_by"></label>
-                <select id="sort_by" name="sort_by" value={selectedValue} onChange={handleDropdownChange}>
-                    <option value="newest">Newest</option>
-                    <option value="oldest">Oldest</option>
-                    <option value="price_low_to_high">Price: Low to High</option>
-                    <option value="price_high_to_low">Price: High to Low</option>
-                </select>
-            </div>
-            <p>{numProducts} Products</p>
+            <b><h4>Filter:</h4></b>
+            <PriceRangeFilter onChangeValue={handleFilterChange} />
+            <MultiSelectDropDown
+                btnTxt="Category"
+                filterKey="category"
+                checkboxes={createCheckboxes(PRODUCT_CATEGORY)}
+                onChangeValue={handleFilterChange}
+            />
+            <MultiSelectDropDown
+                btnTxt="Availability"
+                filterKey="availability"
+                checkboxes={createCheckboxes(AVAILABILITY)}
+                onChangeValue={handleFilterChange}
+            />
         </div>
-        </>
     );
 }
 

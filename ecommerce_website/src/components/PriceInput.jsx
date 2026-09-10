@@ -23,7 +23,7 @@ function PriceInput({ label_text, onChangeValue }) {
   };
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '5px', width: '100%' }}>
       <label htmlFor="min-price">$ </label>
       <div
         className={showInput ? 'price-input-container is-open' : 'price-input-container'}
