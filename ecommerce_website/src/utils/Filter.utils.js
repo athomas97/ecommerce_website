@@ -39,3 +39,20 @@ export function filter(filters, products) {
     return true;
   });
 }
+
+export function filterByProductId(product_id, products) {
+  const categoryEntry = products.find((category) =>
+    category.products?.some((product) => product.product_id === product_id)
+  );
+
+  if (!categoryEntry) return undefined;
+
+  const product = categoryEntry.products.find(
+    (product) => product.product_id === product_id
+  );
+
+  return {
+    product,
+    category: categoryEntry.category,
+  };
+}

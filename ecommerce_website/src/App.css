@@ -1,6 +1,13 @@
-#center {
+.flex-col {
   display: flex;
   flex-direction: column;
+}
+
+.flex {
+  display: flex;
+}
+
+.center {
   gap: 25px;
   place-content: center;
   place-items: center;
@@ -12,7 +19,7 @@
   }
 }
 
-h3, h4, h5 {
+h1, h2, h3, h4, h5 {
   margin-top: 5px;
   margin-bottom: 5px;
 }
@@ -97,7 +104,6 @@ button {
 
 .product-clickable-area:hover h3 {
   text-decoration: underline;
-  color: blue;
 }
 
 .product-img-container {
@@ -126,8 +132,6 @@ button {
 
 /* Filter Bar */
 #filter-bar {
-  display: flex;
-  flex-direction: column;
   gap: 5px;
   align-items: flex-start;
   width: 170px;
@@ -138,8 +142,6 @@ button {
 }
 
 .filter-catagory-container {
-  display: flex;
-  flex-direction: column;
   gap: 5px;
   align-items: flex-start;
   width: 100%;
@@ -191,8 +193,6 @@ select {
 }
 
 .checkbox-list {
-  display: flex;
-  flex-direction: column;
   align-items: flex-start;
   width: 100%;
 }
@@ -284,4 +284,72 @@ input[type=number] {
 .sticky {
   position: sticky;
   top: 0;
+}
+
+/* Product Page */
+#product-container {
+  display: flex;
+  gap: 25px;
+}
+
+#product-container .product-img {
+  width: 35%;
+  height: 35%;
+}
+
+#product-info-container {
+  gap: 10px;
+  align-items: flex-start;
+}
+
+#product-btns-container {
+  display: flex;
+  gap: 10px;
+}
+
+/* Quantity Input */
+#quantity-input-container {
+  background-color: #ffffff;
+  border: 1px solid #2f2f2f;
+  color: black;
+}
+
+#quantity-input-container label {
+  font-size: 10px;
+  text-align: left;
+  padding-top: 5px;
+  padding-left: 5px;
+}
+
+#quantity-input-container input {
+  height: 100%;
+}
+
+#quantity-btns-container button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  width: 30px;
+  font-size: 15px;
+  border: 1px solid #2f2f2f;
+}
+
+#quantity {
+  color: black;
+  background-color: white;
+  border: 0px;
+  cursor: text;
+  width: 50px;
+  text-align: left;
+  padding-left: 5px;
+}
+
+#add-to-cart-btn {
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.description_txt {
+  text-align: left;
 }
