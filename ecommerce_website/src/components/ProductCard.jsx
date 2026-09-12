@@ -1,20 +1,19 @@
-import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
+import { useState } from 'react'
 
 import { ICONS } from '/src/constants'
 
 function ProductCard({
+  product_id,
   name,
   img_path,
   cost,
-  parent_cart,
   availability="In Stock",
-  onClick,
   onCartChange
 }) {
   const isAvailabilityVisible = 
-  availability === "Out of Stock" || availability === "Preorder";
+    availability === "Out of Stock" || availability === "Preorder";
   const [cartIcon, setCartIcon] = useState(ICONS.CART);
-  const [cart, updateCart] = useState(parent_cart);
   
   const handleAddToCart = (key, cost) => {
     onCartChange(prevCart => ({
@@ -48,18 +47,20 @@ function ProductCard({
 
   return (
     <div className="product-card">
-      <div className="product-clickable-area">
-        <div className="product-img-container">
-          {isAvailabilityVisible && <p id="product-availability">{availability}</p>}
-          <img
-            className="product-img"
-            src={img_path}
-            alt={name}
-          />
+      <Link to={`/product/${product_id}`} className="product-clickable-area">
+        <div className="product-clickable-area">
+          <div className="product-img-container">
+            {isAvailabilityVisible && <p id="product-availability">{availability}</p>}
+            <img
+              className="product-img"
+              src={img_path}
+              alt={name}
+            />
+          </div>
+          {/* TODO: Clamp product name txt after 2 lines */}
+          <h3>{name}</h3>
         </div>
-        {/* TODO: Clamp product name txt after 2 lines */}
-        <h3>{name}</h3> 
-      </div>
+      </Link>
       <div className="product-info">
         <p>${cost}</p>
         <img

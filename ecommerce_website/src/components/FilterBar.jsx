@@ -5,7 +5,7 @@ import { AVAILABILITY, PRODUCT_CATEGORY } from '../constants'
 import PriceRangeFilter from './PriceRangeFilter'
 import MultiSelectDropDown from './MultiSelectDropDown'
 
-function FilterBar({ numProducts, onFilterChange, onDropDownSelect }) {
+function FilterBar({ onFilterChange }) {
     const [selectedValue, setSelectedValue] = useState('');
     const [filters, setFilters] = useState({
         "availability": createFilters(AVAILABILITY),
@@ -17,11 +17,6 @@ function FilterBar({ numProducts, onFilterChange, onDropDownSelect }) {
     });
 
     // Callback functions
-    const handleDropdownChange = (event) => {
-        const value = event.target.value;
-        setSelectedValue(value);
-        onDropDownSelect(value);
-    };
     const handleFilterChange = (nextRange) => {
         setFilters((prevFilters) => {
             const nextFilters = { ...prevFilters };
@@ -52,7 +47,10 @@ function FilterBar({ numProducts, onFilterChange, onDropDownSelect }) {
 
     return (
         // TODO: Make filter bar sticky to the top
-        <div id="filter-bar">
+        <div
+            id="filter-bar"
+            className="flex-col"
+        >
             <b><h4>Filter:</h4></b>
             <PriceRangeFilter onChangeValue={handleFilterChange} />
             <MultiSelectDropDown

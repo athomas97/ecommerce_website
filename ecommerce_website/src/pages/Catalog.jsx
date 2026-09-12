@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { sort } from '../utils/Sorting.utils'
 import { filter } from '../utils/Filter.utils'
 import { createFilters } from '../utils/Common.utils'
@@ -68,8 +68,6 @@ function Catalog({parent_cart, onCartChange}) {
     // Render page
     return (
         <div className="page">
-            <p>Cart: {JSON.stringify(cart)}</p>
-            <p>Cart Length: {Object.keys(cart).length}</p>
             <SortBar
                 numProducts={products_set.length}
                 onDropDownSelect={handleSortMethodChange}
@@ -81,15 +79,15 @@ function Catalog({parent_cart, onCartChange}) {
                     onFilterChange={handleFilterChange}
                     onDropDownSelect={handleSortMethodChange}
                 />
-                <div id="center">
+                <div className="flex-col center">
                 <div className="product-grid">
                     {sorted_products.map((product) => (
                         <ProductCard
+                            product_id={product.product_id}
                             key={product.name}
                             name={product.name}
                             img_path={product.img_path}
                             cost={product.cost}
-                            parent_cart={cart}
                             availability={product.availability}
                             onCartChange={handleCartChange}
                         />
