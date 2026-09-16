@@ -46,7 +46,15 @@ function App() {
             />
           }
         />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route
+          path="/checkout"
+          element={
+            <Checkout
+              parent_cart={cart} 
+              onCartChange={handleCartChange}
+            />
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
