@@ -2,9 +2,10 @@ import { useState } from 'react';
 
 function QuantityInput({
     label_text,
-    onChangeValue
+    default_quantity=1,
+    onChangeValue,
 }) {
-    const [quantity, setQuantity] = useState(1);
+    const [quantity, setQuantity] = useState(default_quantity);
 
     // Callback function
     const increaseQuantity = () => {

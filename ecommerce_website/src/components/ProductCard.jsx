@@ -15,16 +15,17 @@ function ProductCard({
     availability === "Out of Stock" || availability === "Preorder";
   const [cartIcon, setCartIcon] = useState(ICONS.CART);
   
-  const handleAddToCart = (key, cost) => {
+  const handleAddToCart = (key, product_id, cost, img_path) => {
     onCartChange(prevCart => ({
       ...prevCart,
       [key]: {
-        quantity: prevCart[key] ? prevCart[key].quantity + 1 : 1,
+        'product_id': product_id,
+        'quantity': prevCart[key] ? prevCart[key].quantity + 1 : 1,
         'cost': cost,
+        'img_path': img_path,
       }
     }));
   };
-
   const handleRemoveFromCart = (key) => {
     onCartChange(prevCart => {
       if (!prevCart[key]) {
@@ -39,14 +40,14 @@ function ProductCard({
         ...prevCart,
         [key]: {
           ...prevCart[key],
-          quantity: newQuantity
+          'quantity': newQuantity
         }
       };
     });
   };
 
   return (
-    <div className="product-card">
+    <div className="product-card sm-card">
       <Link to={`/product/${product_id}`} className="product-clickable-area">
         <div className="product-clickable-area">
           <div className="product-img-container">
@@ -69,7 +70,7 @@ function ProductCard({
           alt="Add to Cart"
           onMouseEnter={() => setCartIcon(ICONS.ADD_TO_CART)}
           onMouseLeave={() => setCartIcon(ICONS.CART)}
-          onClick={() => handleAddToCart(name, cost)}
+          onClick={() => handleAddToCart(name, product_id, cost, img_path)}
         />
         <img
           className="remove-btn"
