@@ -21,16 +21,18 @@ function QuantityInput({
     };
 
     return (
-        <div className="flex">
-            <div
-                id="quantity-input-container"
-                className="flex-col"
+        <div class="quantity-input-container">
+            <button
+                onClick={() => decreaseQuantity()}
+                style={{
+                    borderTopRightRadius: '0px',
+                    borderBottomRightRadius: '0px',
+                }}
             >
-                <label
-                    htmlFor="quantity"
-                >
-                    {label_text}
-                </label>
+                -
+            </button>
+            <div id="quantity-input">
+                <p className="label-txt">{label_text}</p>
                 <input
                     type="number"
                     id="quantity"
@@ -40,18 +42,15 @@ function QuantityInput({
                     disabled
                 />
             </div>
-            <div className="flex-col">
-                <button
-                    onClick={() => increaseQuantity()}
-                >
-                    +
-                </button>
-                <button
-                    onClick={() => decreaseQuantity()}
-                >
-                    -
-                </button>
-            </div>
+            <button
+                onClick={() => increaseQuantity()}
+                style={{
+                    borderTopLeftRadius: '0px',
+                    borderBottomLeftRadius: '0px',
+                }}
+            >
+                +
+            </button>
         </div>
     );
 }

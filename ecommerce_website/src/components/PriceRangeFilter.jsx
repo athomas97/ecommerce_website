@@ -39,7 +39,7 @@ function PriceRangeFilter({ onChangeValue }) {
   };
 
   return (
-    <div className="filter-catagory-container">
+    <div className="filter-category-container">
       <h5> Price </h5>
         <PriceInput
           label_text="From"

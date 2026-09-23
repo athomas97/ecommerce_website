@@ -18,7 +18,7 @@ function Product({parent_cart, onCartChange}) {
     const cost = product.cost
     const description = product.description
     const img_path = product.img_path
-    const catagory = formatIdToName(category)
+    const category_name = formatIdToName(category)
     const [quantity, setQuantity] = useState(1);
     const [cart, updateCart] = useState(parent_cart);
 
@@ -41,31 +41,42 @@ function Product({parent_cart, onCartChange}) {
 
     // Render page
     return (
-        <div id="product-container">
-            <img
-                className="product-img"
-                src={img_path}
-                alt={name}
-            />
-            <div
-                id="product-info-container"
-                className="flex-col"
-            >
-                <h1>{name}</h1>
-                <h3>{catagory}</h3>
-                <h2>${cost}</h2>
-                <p className="description_txt">{description}</p>
-                <div id="product-btns-container">
-                    <QuantityInput
-                        label_text="Quantity"
-                        onChangeValue={handleQuantityChange}
-                    />
-                    <button
-                        id="add-to-cart-btn"
-                        onClick={() => handleAddToCart(name, product_id, cost, img_path)}
+        <div className="page">
+            <div id="product-container">
+                <div class="product-img-container large-img">
+                    <img src={img_path} alt={name} />
+                </div>
+                <div
+                    id="product-info-container"
+                    className="flex-col"
+                >
+                    <div className="header flex-col align-txt-left">
+                        <h1>{name}</h1>
+                        <h2>${cost}</h2>
+                    </div>
+                    <div
+                        id="product-description-container"
+                        className="flex-col align-txt-left"
                     >
-                        Add to Cart
-                    </button>
+                        <h5>Product Description</h5>
+                        <p className="align-txt-left">
+                            {description}
+                        </p>
+                    </div>
+                    <div id="product-btns-container">
+                        <QuantityInput
+                            label_text="Quantity"
+                            onChangeValue={handleQuantityChange}
+                        />
+                        <button
+                            className="primary-btn"
+                            onClick={() => handleAddToCart(
+                                name, product_id, cost, img_path
+                            )}
+                        >
+                            <h3>Add to Cart</h3>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

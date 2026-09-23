@@ -68,19 +68,18 @@ function Catalog({parent_cart, onCartChange}) {
     // Render page
     return (
         <div className="page">
-            <SortBar
-                numProducts={products_set.length}
-                onDropDownSelect={handleSortMethodChange}
-            />
-            <div id="catalog-pg-content">
-                <FilterBar
-                    className="sticky"
+            <h1 className="header flex-col align-txt-left">Catalog</h1>
+            <div id="catalog-container">
+                <SortBar
+                    numProducts={products_set.length}
+                    onDropDownSelect={handleSortMethodChange}
+                />
+                {/* <FilterBar
                     numProducts={products_set.length}
                     onFilterChange={handleFilterChange}
                     onDropDownSelect={handleSortMethodChange}
-                />
-                <div className="flex-col center">
-                <div className="product-grid">
+                /> */}
+                <div id="catalog-product-grid">
                     {sorted_products.map((product) => (
                         <ProductCard
                             product_id={product.product_id}
@@ -92,7 +91,6 @@ function Catalog({parent_cart, onCartChange}) {
                             onCartChange={handleCartChange}
                         />
                     ))}
-                </div>
                 </div>
             </div>
         </div>

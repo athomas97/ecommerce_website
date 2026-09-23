@@ -7,6 +7,7 @@ import Home from "./pages/Home"
 import Catalog from "./pages/Catalog"
 import Product from "./pages/Product"
 import Checkout from "./pages/Checkout"
+import CartIcon from "./components/CartIcon"
 import { usePersistedState } from '/src/hooks/usePersistedState'
 
 function App() {
@@ -19,11 +20,19 @@ function App() {
 
   return (
     <BrowserRouter>
-      <nav>
-        <Link to="/">Home</Link> |{" "}
-        <Link to="/catalog">Catalog</Link> |{" "}
-        <Link to="/checkout">Checkout ({calculateCartQuantity(cart)})</Link>
-        <p>{JSON.stringify(cart)}</p>
+      <nav id="nav-bar">
+        <div className="right-side">
+          <Link to="/">
+            Home
+          </Link>
+          <Link to="/catalog">
+            Catalog
+          </Link>
+        </div>
+        <Link to="/checkout">
+          <CartIcon quantity={calculateCartQuantity(cart)}/>
+        </Link>
+        {/* <p>{JSON.stringify(cart)}</p> */}
       </nav>
 
       <Routes>
