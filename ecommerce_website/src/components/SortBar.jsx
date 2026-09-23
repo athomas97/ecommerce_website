@@ -12,7 +12,7 @@ function SortBar({ numProducts, onDropDownSelect }) {
 
     return (
         <div id="sorting-bar">
-            <div id="sort-by-wrapper">
+            <div id="sorting-bar-right">
                 <b><p>Sort By:</p></b>
                 <label for="sort_by"></label>
                 <select

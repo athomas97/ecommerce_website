@@ -47,10 +47,7 @@ function FilterBar({ onFilterChange }) {
 
     return (
         // TODO: Make filter bar sticky to the top
-        <div
-            id="filter-bar"
-            className="flex-col"
-        >
+        <div id="filter-bar" className="flex-col">
             <b><h4>Filter:</h4></b>
             <PriceRangeFilter onChangeValue={handleFilterChange} />
             <MultiSelectDropDown

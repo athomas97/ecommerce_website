@@ -35,12 +35,18 @@ function CartItem({
         className="product-card"
         style={{ display: 'flex', gap: '20px' }}
     >
-        <div className="product-img-container">
-            <img
-                className="product-img"
-                src={img_path}
-                alt={name}
-            />
+        <div className="product-img-container small-img">
+            <Link
+                to={`/product/${product_id}`}
+                className="product-clickable-area"
+                style={{ textDecoration: 'none' }}
+            >
+                <img
+                    className="product-img"
+                    src={img_path}
+                    alt={name}
+                />
+            </Link>
         </div>
         <div
             style={{ justifyContent: 'space-between', height: '100%', width: '100%' }}
@@ -53,11 +59,11 @@ function CartItem({
                         className="product-clickable-area"
                         style={{ textDecoration: 'none' }}
                     >
-                        <h2>{name}</h2>
+                        <h3><b>{name}</b></h3>
                     </Link>
                     <p>Catagory</p>
                 </div>
-                <h2>${(cost*quantity).toFixed(2)}</h2>
+                <h3><b>${(cost*quantity).toFixed(2)}</b></h3>
             </div>
             <div
                 style={{ display: 'flex', gap: '20px', alignItems: 'center', width: '100%' }}
@@ -69,6 +75,7 @@ function CartItem({
                     onChangeValue={handleQuantityChange}
                 />
                 <p
+                    id="remove-text"
                     className="product-clickable-area"
                     onClick={() => handleRemoveFromCart(name)}
                 >

@@ -7,7 +7,7 @@ function Checkbox({  id, label_name, onChangeValue }) {
   return (
     <div className="checkbox-wrapper">
       <label
-        className="checkbox-container"
+        className="clickable"
         for={id}
       >
         <input

@@ -15,8 +15,17 @@ function ProductCard({
     availability === "Out of Stock" || availability === "Preorder";
   const [cartIcon, setCartIcon] = useState(ICONS.CART);
   
-  const handleAddToCart = (key, product_id, cost, img_path) => {
-    onCartChange(prevCart => ({
+  const handleAddToCart = (
+    event,
+    key,
+    product_id,
+    cost,
+    img_path
+  ) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    onCartChange((prevCart) => ({
       ...prevCart,
       [key]: {
         'product_id': product_id,
@@ -26,31 +35,15 @@ function ProductCard({
       }
     }));
   };
-  const handleRemoveFromCart = (key) => {
-    onCartChange(prevCart => {
-      if (!prevCart[key]) {
-        return prevCart;
-      }
-      const newQuantity = prevCart[key].quantity - 1;
-      if (newQuantity <= 0) {
-        const { [key]: omitted, ...rest } = prevCart;
-        return rest;
-      }
-      return {
-        ...prevCart,
-        [key]: {
-          ...prevCart[key],
-          'quantity': newQuantity
-        }
-      };
-    });
-  };
 
   return (
-    <div className="product-card sm-card">
-      <Link to={`/product/${product_id}`} className="product-clickable-area">
-        <div className="product-clickable-area">
-          <div className="product-img-container">
+    <Link
+      to={`/product/${product_id}`}
+      className="product-clickable-area"
+    >
+      <div className="product-card sm-card space-between">
+        <div className="product-card-header">
+          <div className="product-img-container small-img">
             {isAvailabilityVisible && <p id="product-availability">{availability}</p>}
             <img
               className="product-img"
@@ -61,25 +54,21 @@ function ProductCard({
           {/* TODO: Clamp product name txt after 2 lines */}
           <h3>{name}</h3>
         </div>
-      </Link>
-      <div className="product-info">
-        <p>${cost}</p>
-        <img
-          className="add-to-cart-btn"
-          src={cartIcon}
-          alt="Add to Cart"
-          onMouseEnter={() => setCartIcon(ICONS.ADD_TO_CART)}
-          onMouseLeave={() => setCartIcon(ICONS.CART)}
-          onClick={() => handleAddToCart(name, product_id, cost, img_path)}
-        />
-        <img
-          className="remove-btn"
-          src={ICONS.REMOVE_FROM_CART}
-          alt="Remove from Cart"
-          onClick={() => handleRemoveFromCart(name)}
-        />
+        <div className="product-info">
+          <p>${cost}</p>
+          <img
+            className="icon clickable"
+            src={cartIcon}
+            alt="Add to Cart"
+            onMouseEnter={() => setCartIcon(ICONS.ADD_TO_CART)}
+            onMouseLeave={() => setCartIcon(ICONS.CART)}
+            onClick={(event) => handleAddToCart(
+              event, name, product_id, cost, img_path
+            )}
+          />
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
