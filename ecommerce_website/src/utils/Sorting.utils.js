@@ -1,9 +1,9 @@
 export function sort(sort_method, products) {
     let newList = []
     switch (sort_method) {
-        case 'price_low_to_high':
+        case 'price-low-to-high':
             return sortLowestToHighestPrice(products);
-        case 'price_high_to_low':
+        case 'price-high-to-low':
             return sortHighestToLowestPrice(products);
         case 'newest':
             return sortNewest(products);

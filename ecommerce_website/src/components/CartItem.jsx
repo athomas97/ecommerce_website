@@ -35,7 +35,10 @@ function CartItem({
         className="product-card"
         style={{ display: 'flex', gap: '20px' }}
     >
-        <div className="product-img-container small-img">
+        <div
+            className="product-img-container small-img"
+            style={{ maxWidth: '200px' }}
+        >
             <Link
                 to={`/product/${product_id}`}
                 className="product-clickable-area"
