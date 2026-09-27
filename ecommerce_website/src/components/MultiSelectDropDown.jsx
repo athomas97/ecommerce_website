@@ -41,7 +41,7 @@ function MultiSelectDropDown({ btnTxt, filterKey, checkboxes, onChangeValue }) {
   };
 
   return (
-    <div className="flex-col filter-category-container">
+    <div className="filter-category-container">
       <h5> {btnTxt} </h5>
         <div className="flex-col checkbox-list">
           {checkboxes.map((checkbox) => (

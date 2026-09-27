@@ -2,16 +2,15 @@ import { useState } from 'react';
 import { sort } from '../utils/Sorting.utils'
 import { filter } from '../utils/Filter.utils'
 import { createFilters } from '../utils/Common.utils'
-import { AVAILABILITY, PRODUCT_CATEGORY } from '../constants'
+import { SORT_BY, AVAILABILITY, PRODUCT_CATEGORY } from '../constants'
 
 import products from '../assets/products.json'
 import ProductCard from '../components/ProductCard'
-import SortBar from '../components/SortBar'
 import FilterBar from '../components/FilterBar'
 
 function Catalog({parent_cart, onCartChange}) {
-    const [sortMethod, setSortMethod] = useState("");
     const [filters, setFilters] = useState({
+        "sort_by": Object.values(SORT_BY)[0],
         "availability": createFilters(AVAILABILITY),
         "price": {
             "min": '',
@@ -26,15 +25,15 @@ function Catalog({parent_cart, onCartChange}) {
         updateCart(data);
         onCartChange(data);
     };
-    const handleSortMethodChange = (data) => {
-        setSortMethod(data);
-    };
     const handleFilterChange = (data) => {
         setFilters((prevFilters) => {
             const nextFilters = {
                 ...prevFilters,
                 ...data,
             };
+            if (data.sort_by) {
+                nextFilters.sort_by = data.sort_by;
+            }
             // TODO: Handles errors if availability is not a valid type
             if (data.availability) {
                 nextFilters.availability = {
@@ -63,34 +62,31 @@ function Catalog({parent_cart, onCartChange}) {
     let products_set = filter(filters, products)
 
     // Sort products
-    let sorted_products = sort(sortMethod, products_set)
+    let sorted_products = sort(filters.sort_by, products_set)
 
     // Render page
     return (
         <div className="page">
             <h1 className="header flex-col align-txt-left">Catalog</h1>
             <div id="catalog-container">
-                <SortBar
-                    numProducts={products_set.length}
-                    onDropDownSelect={handleSortMethodChange}
-                />
-                {/* <FilterBar
-                    numProducts={products_set.length}
-                    onFilterChange={handleFilterChange}
-                    onDropDownSelect={handleSortMethodChange}
-                /> */}
-                <div id="catalog-product-grid">
-                    {sorted_products.map((product) => (
-                        <ProductCard
-                            product_id={product.product_id}
-                            key={product.name}
-                            name={product.name}
-                            img_path={product.img_path}
-                            cost={product.cost}
-                            availability={product.availability}
-                            onCartChange={handleCartChange}
-                        />
-                    ))}
+                <div id="catalog-container-child">
+                    <FilterBar
+                        numProducts={products_set.length}
+                        onFilterChange={handleFilterChange}
+                    />
+                    <div id="catalog-product-grid">
+                        {sorted_products.map((product) => (
+                            <ProductCard
+                                product_id={product.product_id}
+                                key={product.name}
+                                name={product.name}
+                                img_path={product.img_path}
+                                cost={product.cost}
+                                availability={product.availability}
+                                onCartChange={handleCartChange}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

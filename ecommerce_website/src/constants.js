@@ -3,6 +3,12 @@ export const ICONS = {
   ADD_TO_CART: "/src/assets/icons/add-to-cart.png",
   REMOVE_FROM_CART: "/src/assets/icons/remove.png",
 }
+export const SORT_BY = {
+  NEWEST: "Newest",
+  OLDEST: "Oldest",
+  PRICE_LOW_TO_HIGH: "Price: Low to High",
+  PRICE_HIGH_TO_LOW: "Price: High to Low",
+}
 
 export const AVAILABILITY = {
   IN_STOCK: "in-stock",

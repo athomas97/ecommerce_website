@@ -17,6 +17,15 @@ export function formatIdToName(id) {
   );
 }
 
+export function formatNameToId(name) {
+  return (
+    name.trim()
+    .replaceAll(" ", "-")
+    .replace(/[^a-zA-Z0-9-]/g, "")
+    .replace(/\b\w/g, char => char.toLowerCase())
+  );
+}
+
 export function calculateCartQuantity(cart) {
   return Object.values(cart).reduce((total, item) => total + item.quantity, 0);
 }

@@ -41,14 +41,14 @@ function PriceRangeFilter({ onChangeValue }) {
   return (
     <div className="filter-category-container">
       <h5> Price </h5>
-        <PriceInput
-          label_text="From"
-          onChangeValue={handleMinPrice}
-        />
-        <PriceInput
-          label_text="To"
-          onChangeValue={handleMaxPrice}
-        />
+      <PriceInput
+        label_text="From"
+        onChangeValue={handleMinPrice}
+      />
+      <PriceInput
+        label_text="To"
+        onChangeValue={handleMaxPrice}
+      />
     </div>
   );
 }
