@@ -421,6 +421,7 @@ button {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  align-items: flex-start;
   gap: var(--spacing-3);
 }
 
