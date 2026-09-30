@@ -1,6 +1,6 @@
 import './App.css'
 
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link, Navigate } from 'react-router-dom';
 import { calculateCartQuantity } from '/src/utils/Common.utils'
 
 import Catalog from "./pages/Catalog"
@@ -18,7 +18,7 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <nav id="nav-bar">
         <div className="right-side">
           <Link to="/catalog">
@@ -32,6 +32,7 @@ function App() {
       </nav>
 
       <Routes>
+        <Route path="/" element={<Navigate to="/catalog" replace />} />
         <Route
           path="/catalog"
           element={
