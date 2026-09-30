@@ -1,7 +1,7 @@
 export const ICONS = {
-  CART: "/ecommerce_website/ecommerce_website/src/assets/icons/shopping-cart.png",
-  ADD_TO_CART: "/ecommerce_website/ecommerce_website/src/assets/icons/add-to-cart.png",
-  REMOVE_FROM_CART: "/ecommerce_website/ecommerce_website/src/assets/icons/remove.png",
+  CART: "/ecommerce_website/src/assets/icons/shopping-cart.png",
+  ADD_TO_CART: "/ecommerce_website/src/assets/icons/add-to-cart.png",
+  REMOVE_FROM_CART: "/ecommerce_website/src/assets/icons/remove.png",
 }
 export const SORT_BY = {
   NEWEST: "Newest",
