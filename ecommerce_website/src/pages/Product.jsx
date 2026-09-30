@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { filterByProductId } from '../utils/Filter.utils'
+import { getProductImageUrl } from '../utils/assetUrl'
 import { formatIdToName } from '/src/utils/Common.utils'
 
 import products from '../assets/products.json'
@@ -44,7 +45,7 @@ function Product({parent_cart, onCartChange}) {
         <div className="page">
             <div id="product-container">
                 <div class="product-img-container large-img">
-                    <img src={img_path} alt={name} />
+                    <img src={getProductImageUrl(img_path)} alt={name} />
                 </div>
                 <div
                     id="product-info-container"

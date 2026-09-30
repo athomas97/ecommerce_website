@@ -1,7 +1,11 @@
+import cartIcon from './assets/icons/shopping-cart.png'
+import addToCartIcon from './assets/icons/add-to-cart.png'
+import removeFromCartIcon from './assets/icons/remove.png'
+
 export const ICONS = {
-  CART: "/ecommerce_website/src/assets/icons/shopping-cart.png",
-  ADD_TO_CART: "/ecommerce_website/src/assets/icons/add-to-cart.png",
-  REMOVE_FROM_CART: "/ecommerce_website/src/assets/icons/remove.png",
+  CART: cartIcon,
+  ADD_TO_CART: addToCartIcon,
+  REMOVE_FROM_CART: removeFromCartIcon,
 }
 export const SORT_BY = {
   NEWEST: "Newest",

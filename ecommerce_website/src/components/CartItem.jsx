@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import QuantityInput from '/src/components/QuantityInput'
+import { getProductImageUrl } from '../utils/assetUrl'
 
 function CartItem({
     product_id,
@@ -46,7 +47,7 @@ function CartItem({
             >
                 <img
                     className="product-img"
-                    src={img_path}
+                    src={getProductImageUrl(img_path)}
                     alt={name}
                 />
             </Link>

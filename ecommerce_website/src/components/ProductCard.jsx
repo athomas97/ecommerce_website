@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react'
 
 import { ICONS } from '/src/constants'
+import { getProductImageUrl } from '../utils/assetUrl'
 
 function ProductCard({
   product_id,
@@ -47,7 +48,7 @@ function ProductCard({
             {isAvailabilityVisible && <p id="product-availability">{availability}</p>}
             <img
               className="product-img"
-              src={img_path}
+              src={getProductImageUrl(img_path)}
               alt={name}
             />
           </div>
