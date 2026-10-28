@@ -8,9 +8,10 @@ import products from '../assets/products.json'
 import ProductCard from '../components/ProductCard'
 import FilterBar from '../components/FilterBar'
 
-function Catalog({parent_cart, onCartChange, searchTerm}) {
+function Catalog({parent_cart, onCartChange}) {
     const [filters, setFilters] = useState({
         "sort_by": Object.values(SORT_BY)[0],
+        "name": '',
         "availability": createFilters(AVAILABILITY),
         "price": {
             "min": '',
@@ -59,7 +60,7 @@ function Catalog({parent_cart, onCartChange, searchTerm}) {
     };
 
     // Filter products
-    let products_set = filter({ ...filters, name: searchTerm }, products)
+    let products_set = filter(filters, products)
 
     // Sort products
     let sorted_products = sort(filters.sort_by, products_set)
