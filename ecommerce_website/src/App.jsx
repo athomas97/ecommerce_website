@@ -1,5 +1,6 @@
 import './App.css'
 
+import { useState } from 'react';
 import { BrowserRouter, Routes, Route, Link, Navigate } from 'react-router-dom';
 import { calculateCartQuantity } from '/src/utils/Common.utils'
 
@@ -7,10 +8,12 @@ import Catalog from "./pages/Catalog"
 import Product from "./pages/Product"
 import Checkout from "./pages/Checkout"
 import CartIcon from "./components/CartIcon"
+import SearchBar from './components/SearchBar'
 import { usePersistedState } from '/src/hooks/usePersistedState'
 
 function App() {
   const [cart, updateCart] = usePersistedState('cart', {});
+  const [searchTerm, setSearchTerm] = useState('');
 
   // Callback Function
   const handleCartChange = (data) => {
@@ -25,6 +28,10 @@ function App() {
             Catalog
           </Link>
         </div>
+        <SearchBar
+          value={searchTerm}
+          onSearchChange={setSearchTerm}
+        />
         <Link to="/checkout">
           <CartIcon quantity={calculateCartQuantity(cart)}/>
         </Link>
@@ -39,6 +46,7 @@ function App() {
             <Catalog
               parent_cart={cart} 
               onCartChange={handleCartChange}
+              searchTerm={searchTerm}
             />
           }
         />
