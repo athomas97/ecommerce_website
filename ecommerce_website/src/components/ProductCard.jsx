@@ -57,16 +57,18 @@ function ProductCard({
         </div>
         <div className="product-info">
           <p>${cost}</p>
-          <img
-            className="icon clickable"
-            src={cartIcon}
-            alt="Add to Cart"
-            onMouseEnter={() => setCartIcon(ICONS.ADD_TO_CART)}
-            onMouseLeave={() => setCartIcon(ICONS.CART)}
-            onClick={(event) => handleAddToCart(
-              event, name, product_id, cost, img_path
-            )}
-          />
+          <div style={{ position: 'relative' }} className="icon-hover">
+            <img
+              className="icon clickable"
+              src={cartIcon}
+              alt="Add to Cart"
+              onMouseEnter={() => setCartIcon(ICONS.ADD_TO_CART)}
+              onMouseLeave={() => setCartIcon(ICONS.CART)}
+              onClick={(event) => handleAddToCart(
+                event, name, product_id, cost, img_path
+              )}
+            />
+          </div>
         </div>
       </div>
     </Link>

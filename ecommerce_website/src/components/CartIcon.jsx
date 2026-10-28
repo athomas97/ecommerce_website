@@ -2,7 +2,7 @@ import { ICONS } from '/src/constants'
 
 function CartIcon({quantity}) {
   return (
-    <div id="cart-icon">
+    <div className="icon-hover" id="cart-icon">
         <p><b>{quantity}</b></p>
         <img
             className="icon clickable"

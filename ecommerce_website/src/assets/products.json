@@ -33,15 +33,6 @@
                 "cost": "32.99",
                 "availability": "Preorder",
                 "created_at": "2025-12-21T20:45:00Z"
-            },
-            {
-                "product_id": 4,
-                "name": "Vitamin Face Serum!!",
-                "description": "Vitamin Face Serum!! is a luxurious skincare product that combines the power of natural ingredients with advanced scientific formulations. It is designed to nourish, hydrate, and rejuvenate the skin, leaving it radiant and youthful. The serum contains a blend of antioxidants, vitamins, and essential oils that work together to improve skin texture, reduce the appearance of fine lines and wrinkles, and promote a healthy complexion.",
-                "img_path": "/ecommerce_website/src/assets/img/product_3.jpg",
-                "cost": "32.99",
-                "availability": "In Stock",
-                "created_at": "2025-12-21T20:45:00Z"
             }
         ]
     }
