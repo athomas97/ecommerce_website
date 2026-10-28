@@ -267,7 +267,6 @@ input:not(.price-input-container input, #search-bar input, #quantity-input input
   border: 1px solid var(--gray-4);
   border-radius: var(--border-radius);
   background-color: var(--white);
-  text-align: left;
 }
 
 select:hover,
@@ -301,9 +300,9 @@ select:hover,
 
 /* Search Input */
 #search-bar {
-  display: flex;
-  position: relative;
-  max-width: 500px;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
   cursor: text;
 
   input {

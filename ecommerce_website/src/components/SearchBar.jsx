@@ -27,7 +27,7 @@ function SearchBar({ value, onSearchChange }) {
         type="text"
         id="search"
         name="search"
-        placeholder="Search for product"
+        placeholder="Search"
         value={value}
         onChange={(event) => onSearchChange(event.target.value)}
       />
