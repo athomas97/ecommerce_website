@@ -14,6 +14,7 @@ export function filter(filters, products) {
   };
   const minPrice = parseBound(filters.price?.min);
   const maxPrice = parseBound(filters.price?.max);
+  const nameQuery = String(filters.name || '').trim().toLowerCase();
 
   const categoryFiltered = activeCategories.length > 0
     ? products.filter((entry) => activeCategories.includes(entry.category))
@@ -25,6 +26,13 @@ export function filter(filters, products) {
     String(text || '').toLowerCase().replace(/\s+/g, '-');
 
   return productsSet.filter((product) => {
+    if (
+      nameQuery &&
+      !String(product.name || '').toLowerCase().includes(nameQuery)
+    ) {
+      return false;
+    }
+
     if (activeAvailability.length > 0) {
       const productKey = normalizeAvailability(product.availability);
       if (!activeAvailability.includes(productKey)) return false;

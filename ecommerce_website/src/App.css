@@ -75,11 +75,13 @@
 #cart-icon {
   display: flex;
   position: relative;
+  align-items: center;
+  height: 100%;
   margin-right: var(--spacing-3);
 
   p {
     position: absolute;
-    top: calc(var(--spacing-2) * -1);
+    top: var(--spacing-1);
     right: calc(var(--spacing-3) * -1);
     text-align: center;
     background-color: var(--primary-color);
@@ -234,6 +236,23 @@
   font-size: var(--label-font-size);
 }
 
+select,
+#search-bar,
+.price-input-container,
+input:not(.price-input-container input, #search-bar input) {
+  padding: 10px 15px;
+  border: 1px solid var(--gray-4);
+  border-radius: var(--border-radius);
+  background-color: var(--white);
+  text-align: left;
+}
+
+select:hover,
+#search-bar:hover,
+.price-input-container:hover {
+    outline: 2px solid var(--gray-4);
+}
+
 /* Multi Select DropDown */
 .checkbox-wrapper {
   display: flex;
@@ -257,10 +276,36 @@
   width: 100%;
 }
 
+/* Search Input */
+#search-bar {
+  display: flex;
+  position: relative;
+  max-width: 500px;
+  cursor: text;
+
+  input {
+    border: none;
+    margin-left: 5px;
+    width: 100%;
+
+    &:focus {
+      border: none;
+      outline: none;
+    }
+  }
+
+  img {
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+  }
+}
+
 /* Price Input */
 .price-input-container {
   display: flex;
   flex-direction: column;
+  cursor: text;
 
   p {
     transition: font-size 0.2s ease, display 0.1s;
@@ -271,17 +316,8 @@
   }
 }
 
-select, .price-input-container {
+.price-input-container {
   width: 100%;
-  padding: 10px 15px;
-  border: 1px solid var(--gray-4);
-  border-radius: var(--border-radius);
-  background-color: var(--white);
-  text-align: left;
-
-  &:hover {
-    border: 2px solid var(--gray-4);
-  }
 }
 
 .price-input-container.is-open input {
