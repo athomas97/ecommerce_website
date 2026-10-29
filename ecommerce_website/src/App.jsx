@@ -2,7 +2,6 @@ import './App.css'
 
 import { BrowserRouter, Routes, Route, Link, Navigate } from 'react-router-dom';
 import { calculateCartQuantity } from '/src/utils/Common.utils'
-import { getProductImageUrl } from './utils/assetUrl'
 import { LOGO } from '/src/constants'
 
 import Catalog from "./pages/Catalog"
