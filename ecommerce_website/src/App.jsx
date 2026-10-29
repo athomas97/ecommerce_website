@@ -2,6 +2,8 @@ import './App.css'
 
 import { BrowserRouter, Routes, Route, Link, Navigate } from 'react-router-dom';
 import { calculateCartQuantity } from '/src/utils/Common.utils'
+import { getProductImageUrl } from './utils/assetUrl'
+import { LOGO } from '/src/constants'
 
 import Catalog from "./pages/Catalog"
 import Product from "./pages/Product"
@@ -22,7 +24,7 @@ function App() {
       <nav id="nav-bar">
         <div className="right-side">
           <Link to="/catalog">
-            <img id="logo" src="/ecommerce_website/src/assets/img/logo.png" alt="My Closet"/>
+            <img id="logo" src={getProductImageUrl(LOGO)} alt="My Closet"/>
           </Link>
         </div>
         <Link to="/checkout">
