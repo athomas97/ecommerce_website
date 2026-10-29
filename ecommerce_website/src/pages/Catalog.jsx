@@ -68,7 +68,7 @@ function Catalog({parent_cart, onCartChange}) {
     // Render page
     return (
         <div className="page">
-            <h1 className="header flex-col align-txt-left">Catalog</h1>
+            {/* <h1 className="flex-col align-txt-left">Catalog</h1> */}
             <div id="catalog-container">
                 <div id="catalog-container-child">
                     <FilterBar
@@ -83,6 +83,8 @@ function Catalog({parent_cart, onCartChange}) {
                                 name={product.name}
                                 img_path={product.img_path}
                                 cost={product.cost}
+                                size={product.size}
+                                category={product.category}
                                 availability={product.availability}
                                 onCartChange={handleCartChange}
                             />

@@ -6,6 +6,7 @@ import { formatIdToName } from '/src/utils/Common.utils'
 
 import products from '../assets/products.json'
 import QuantityInput from '/src/components/QuantityInput'
+import { SPARKLE } from '/src/constants'
 
 function Product({parent_cart, onCartChange}) {
     // Get product from json file
@@ -19,7 +20,9 @@ function Product({parent_cart, onCartChange}) {
     const cost = product.cost
     const description = product.description
     const img_path = product.img_path
+    const size = product.size
     const category_name = formatIdToName(category)
+    const availability = product.availability
     const [quantity, setQuantity] = useState(1);
     const [cart, updateCart] = useState(parent_cart);
 
@@ -28,13 +31,17 @@ function Product({parent_cart, onCartChange}) {
         setQuantity(data);
     };
 
-    const handleAddToCart = (key, product_id, cost, img_path) => {
+    const handleAddToCart = (key, product_id, cost, size, category, img_path) => {
+        if (availability === "Out of Stock") return;
+
         onCartChange(prevCart => ({
         ...prevCart,
         [key]: {
             'product_id': product_id,
             'quantity': prevCart[key] ? prevCart[key].quantity + quantity : quantity,
             'cost': cost,
+            'size': size,
+            'category': category,
             'img_path': img_path,
         }
         }));
@@ -45,6 +52,16 @@ function Product({parent_cart, onCartChange}) {
         <div className="page">
             <div id="product-container">
                 <div class="product-img-container large-img">
+                    <img
+                        className="sparkle-top-left"
+                        src={SPARKLE}
+                        alt={name}
+                    />
+                    <img
+                        className="sparkle-bottom-right"
+                        src={SPARKLE}
+                        alt={name}
+                    />
                     <img src={getProductImageUrl(img_path)} alt={name} />
                 </div>
                 <div
@@ -53,8 +70,9 @@ function Product({parent_cart, onCartChange}) {
                 >
                     <div className="header flex-col align-txt-left">
                         <h1>{name}</h1>
-                        <h2>${cost}</h2>
+                        <p>Size {size} • {category_name}</p>
                     </div>
+                    <h2>${cost}</h2>
                     <div
                         id="product-description-container"
                         className="flex-col align-txt-left"
@@ -70,9 +88,9 @@ function Product({parent_cart, onCartChange}) {
                             onChangeValue={handleQuantityChange}
                         />
                         <button
-                            className="primary-btn"
+                            className={availability === "Out of Stock" ? "primary-btn disabled" : "primary-btn"}
                             onClick={() => handleAddToCart(
-                                name, product_id, cost, img_path
+                                name, product_id, cost, size, category_name, img_path
                             )}
                         >
                             <h3>Add to Cart</h3>

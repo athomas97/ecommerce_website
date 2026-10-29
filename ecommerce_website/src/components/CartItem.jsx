@@ -1,13 +1,17 @@
 import { Link } from 'react-router-dom';
 
 import QuantityInput from '/src/components/QuantityInput'
+import { formatIdToName } from '/src/utils/Common.utils'
 import { getProductImageUrl } from '../utils/assetUrl'
+import { SPARKLE } from '/src/constants'
 
 function CartItem({
     product_id,
     name,
     img_path,
     cost,
+    size,
+    category,
     quantity,
     onCartChange
 }) {
@@ -34,24 +38,30 @@ function CartItem({
   return (
     <div
         className="product-card"
+        id="cart-item"
         style={{ display: 'flex', gap: '20px' }}
     >
-        <div
-            className="product-img-container small-img"
-            style={{ maxWidth: '200px' }}
+        <Link
+            to={`/product/${product_id}`}
+            className="product-clickable-area product-img-container small-img"
+            style={{ textDecoration: 'none' }}
         >
-            <Link
-                to={`/product/${product_id}`}
-                className="product-clickable-area"
-                style={{ textDecoration: 'none' }}
-            >
-                <img
-                    className="product-img"
-                    src={getProductImageUrl(img_path)}
-                    alt={name}
-                />
-            </Link>
-        </div>
+            <img
+                className="sparkle-top-left"
+                src={SPARKLE}
+                alt={name}
+            />
+            <img
+                className="sparkle-bottom-right"
+                src={SPARKLE}
+                alt={name}
+            />
+            <img
+                className="product-img"
+                src={getProductImageUrl(img_path)}
+                alt={name}
+            />
+        </Link>
         <div
             style={{ justifyContent: 'space-between', height: '100%', width: '100%' }}
             className="flex-col"
@@ -65,9 +75,9 @@ function CartItem({
                     >
                         <h3><b>{name}</b></h3>
                     </Link>
-                    <p>Catagory</p>
+                    <p>Size {size} • {formatIdToName(category)}</p>
                 </div>
-                <h3><b>${(cost*quantity).toFixed(2)}</b></h3>
+                <h4><b>${(cost*quantity).toFixed(2)}</b></h4>
             </div>
             <div
                 style={{ display: 'flex', gap: '20px', alignItems: 'center', width: '100%' }}

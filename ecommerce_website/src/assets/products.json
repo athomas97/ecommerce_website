@@ -1,38 +1,131 @@
 [
     {
-        "category": "category-1",
+        "category": "tops",
         "products": [
             {
-                "product_id": 1,
-                "name": "Cinnabari Serum",
-                "description": "Cinnabari Serum is a luxurious skincare product that combines the power of natural ingredients with advanced scientific formulations. It is designed to nourish, hydrate, and rejuvenate the skin, leaving it radiant and youthful. The serum contains a blend of antioxidants, vitamins, and essential oils that work together to improve skin texture, reduce the appearance of fine lines and wrinkles, and promote a healthy complexion.",
-                "img_path": "/ecommerce_website/src/assets/img/product_1.jpg",
-                "cost": "20.99",
+                "product_id": 100,
+                "name": "Brown Checkered Top",
+                "description": "A lightweight brown-and-cream checkered top with thin shoulder straps, a V-neckline, and a softly flared hem.",
+                "img_path": "/ecommerce_website/src/assets/img/shirt_1.png",
+                "cost": "10.99",
+                "size": "L",
+                "category": "tops",
                 "availability": "In Stock",
-                "created_at": "2026-03-10T18:30:00Z"
+                "created_at": "2025-02-06T18:30:00Z"
             },
             {
-                "product_id": 2,
-                "name": "Beauty Algorithm Gummy",
-                "description": "Beauty Algorithm Gummy is a delicious and nutritious snack that combines the benefits of natural ingredients with advanced scientific formulations. It is designed to support overall health and wellness, leaving you feeling energized and refreshed. The gummy contains a blend of vitamins, minerals, and essential nutrients that work together to boost your immune system, improve skin health, and promote a healthy lifestyle.",
-                "img_path": "/ecommerce_website/src/assets/img/product_2.jpg",
-                "cost": "49.99",
-                "availability": "Out of Stock",
-                "created_at": "2026-06-25T05:23:00Z"
+                "product_id": 101,
+                "name": "Purple Bunny Vest",
+                "description": "A purple sleeveless sweater vest with a V-neck, striped trim, and a small bunny graphic on the chest.",
+                "img_path": "/ecommerce_website/src/assets/img/shirt_2.png",
+                "cost": "20.99",
+                "size": "XL",
+                "category": "tops",
+                "availability": "In Stock",
+                "created_at": "2024-04-10T18:30:00Z"
+            },
+            {
+                "product_id": 102,
+                "name": "Star Tank Top",
+                "description": "A black sleeveless tank top featuring a contrasting star patch at the center.",
+                "img_path": "/ecommerce_website/src/assets/img/shirt_3.png",
+                "cost": "10.99",
+                "size": "S",
+                "category": "tops",
+                "availability": "In Stock",
+                "created_at": "2025-10-07T18:30:00Z"
+            },
+            {
+                "product_id": 103,
+                "name": "White Rose Blouse",
+                "description": "A white blouse with puff sleeves, a V-neckline, delicate vertical detailing, and a button-front design.",
+                "img_path": "/ecommerce_website/src/assets/img/shirt_4.png",
+                "cost": "25.99",
+                "size": "M",
+                "category": "tops",
+                "availability": "In Stock",
+                "created_at": "2026-01-13T18:30:00Z"
             }
         ]
     },
     {
-        "category": "category-2",
+        "category": "jackets",
         "products": [
             {
-                "product_id": 3,
-                "name": "Vitamin Face Serum",
-                "description": "Vitamin Face Serum is a luxurious skincare product that combines the power of natural ingredients with advanced scientific formulations. It is designed to nourish, hydrate, and rejuvenate the skin, leaving it radiant and youthful. The serum contains a blend of antioxidants, vitamins, and essential oils that work together to improve skin texture, reduce the appearance of fine lines and wrinkles, and promote a healthy complexion.",
-                "img_path": "/ecommerce_website/src/assets/img/product_3.jpg",
-                "cost": "32.99",
-                "availability": "Preorder",
+                "product_id": 200,
+                "name": "Brown Suade Jacket",
+                "description": "A dark brown suede-look jacket with a classic collar, button front, and full-length sleeves.",
+                "img_path": "/ecommerce_website/src/assets/img/jacket_1.png",
+                "cost": "50.99",
+                "size": "M",
+                "category": "jackets",
+                "availability": "In Stock",
+                "created_at": "2026-01-21T18:30:00Z"
+            },
+            {
+                "product_id": 201,
+                "name": "Purple Suade Jacket",
+                "description": "A purple suede-look jacket with a collared neckline, zip-front closure, and full-length sleeves.",
+                "img_path": "/ecommerce_website/src/assets/img/jacket_2.png",
+                "cost": "45.99",
+                "size": "L",
+                "category": "jackets",
+                "availability": "Out of Stock",
+                "created_at": "2026-03-19T18:30:00Z"
+            }
+        ]
+    },
+    {
+        "category": "pants",
+        "products": [
+            {
+                "product_id": 300,
+                "name": "Dark Wash Jeans",
+                "description": "Dark-wash jeans with a faded finish, classic front pockets, and a relaxed, straight-leg shape.",
+                "img_path": "/ecommerce_website/src/assets/img/pants_1.png",
+                "cost": "30.99",
+                "size": "L",
+                "category": "pants",
+                "availability": "In Stock",
+                "created_at": "2026-04-19T20:45:00Z"
+            },
+            {
+                "product_id": 301,
+                "name": "Baggy Camo Pants",
+                "description": "Relaxed-fit pants in an allover green and brown camouflage print, with large front pockets.",
+                "img_path": "/ecommerce_website/src/assets/img/pants_2.png",
+                "cost": "30.99",
+                "size": "10",
+                "category": "pants",
+                "availability": "Out of Stock",
                 "created_at": "2025-12-21T20:45:00Z"
+            }
+        ]
+    },
+    {
+        "category": "skirts",
+        "products": [
+            {
+                "product_id": 400,
+                "name": "Red Plaid Pleated Skirt",
+                "description": "A red-and-black plaid skirt with a pleated silhouette and a clean, straight waistband.",
+                "img_path": "/ecommerce_website/src/assets/img/skirt_1.png",
+                "cost": "25.99",
+                "size": "L",
+                "category": "skirts",
+                "availability": "Out of Stock",
+                "created_at": "2026-06-01T20:45:00Z"
+            },
+            {
+                "product_id": 401,
+                "name": "Purple Plaid Tier Skirt",
+                "description": "A purple plaid skirt with a gathered waistband, layered tiers, and contrasting dark trim.",
+                "img_path": "/ecommerce_website/src/assets/img/skirt_2.png",
+                "cost": "25.99",
+                "size": "L",
+                "category": "skirts",
+                "availability": "Out of Stock",
+                "created_at": "2025-08-22T20:45:00Z"
             }
         ]
     }
