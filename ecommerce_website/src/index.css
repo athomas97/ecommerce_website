@@ -1,11 +1,12 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: var(--light-beige);
 }
 
 #root {
   /* width: 1126px; */
-  padding: 20px 100px;
+  padding: 20px 60px;
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
@@ -21,17 +22,27 @@ h1,h2, h3, h4, h5, p, a, input,
 select, label, .label_text,
 .quantity-input-container button,
 #quantity-input input {
-  color: var(--gray-4);
+  color: var(--dark-brown);
 }
 
 button, button h3, .product-availability {
   color: var(--gray-1);
 }
 
-h1,h2, h3, h4, h5, p, a, input,
+h1 {
+  font-family: "Sekuya", system-ui;
+}
+
+h2, h3, h4, h5, p, input,
 select, label, .label_text, .quantity-input-container button,
 button, button h3, .product-availability, #quantity-input input {
-  font-family: 'Inter', sans-serif;
+  font-family: "Turret Road", sans-serif;
+}
+
+p, input, select, label, .label_text,
+.quantity-input-container button, button,
+button h3, .product-availability, #quantity-input input {
+  letter-spacing: 1.5px;
 }
 
 h1 {
@@ -45,7 +56,7 @@ h1 {
 }
 h2 {
   font-size: var(--h2-font-size);
-  font-weight: var(--semi-bold);
+  font-weight: var(--bold);
   line-height: 118%;
   margin: 0 0 8px;
   @media (max-width: 1024px) {

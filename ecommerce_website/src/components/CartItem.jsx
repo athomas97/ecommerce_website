@@ -34,24 +34,30 @@ function CartItem({
   return (
     <div
         className="product-card"
+        id="cart-item"
         style={{ display: 'flex', gap: '20px' }}
     >
-        <div
-            className="product-img-container small-img"
-            style={{ maxWidth: '200px' }}
+        <Link
+            to={`/product/${product_id}`}
+            className="product-clickable-area product-img-container small-img"
+            style={{ textDecoration: 'none' }}
         >
-            <Link
-                to={`/product/${product_id}`}
-                className="product-clickable-area"
-                style={{ textDecoration: 'none' }}
-            >
-                <img
-                    className="product-img"
-                    src={getProductImageUrl(img_path)}
-                    alt={name}
-                />
-            </Link>
-        </div>
+            <img
+                className="sparkle-top-left"
+                src={getProductImageUrl("./src/assets/img/sparkle.png")}
+                alt={name}
+            />
+            <img
+                className="sparkle-bottom-right"
+                src={getProductImageUrl("./src/assets/img/sparkle.png")}
+                alt={name}
+            />
+            <img
+                className="product-img"
+                src={getProductImageUrl(img_path)}
+                alt={name}
+            />
+        </Link>
         <div
             style={{ justifyContent: 'space-between', height: '100%', width: '100%' }}
             className="flex-col"
@@ -65,9 +71,9 @@ function CartItem({
                     >
                         <h3><b>{name}</b></h3>
                     </Link>
-                    <p>Catagory</p>
+                    <p>Size L • category</p>
                 </div>
-                <h3><b>${(cost*quantity).toFixed(2)}</b></h3>
+                <h4><b>${(cost*quantity).toFixed(2)}</b></h4>
             </div>
             <div
                 style={{ display: 'flex', gap: '20px', alignItems: 'center', width: '100%' }}

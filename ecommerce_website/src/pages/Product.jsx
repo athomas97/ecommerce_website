@@ -19,6 +19,7 @@ function Product({parent_cart, onCartChange}) {
     const cost = product.cost
     const description = product.description
     const img_path = product.img_path
+    const size = product.size
     const category_name = formatIdToName(category)
     const [quantity, setQuantity] = useState(1);
     const [cart, updateCart] = useState(parent_cart);
@@ -45,6 +46,16 @@ function Product({parent_cart, onCartChange}) {
         <div className="page">
             <div id="product-container">
                 <div class="product-img-container large-img">
+                    <img
+                        className="sparkle-top-left"
+                        src={getProductImageUrl("./src/assets/img/sparkle.png")}
+                        alt={name}
+                    />
+                    <img
+                        className="sparkle-bottom-right"
+                        src={getProductImageUrl("./src/assets/img/sparkle.png")}
+                        alt={name}
+                    />
                     <img src={getProductImageUrl(img_path)} alt={name} />
                 </div>
                 <div
@@ -53,8 +64,9 @@ function Product({parent_cart, onCartChange}) {
                 >
                     <div className="header flex-col align-txt-left">
                         <h1>{name}</h1>
-                        <h2>${cost}</h2>
+                        <p>Size {size} • {category_name}</p>
                     </div>
+                    <h2>${cost}</h2>
                     <div
                         id="product-description-container"
                         className="flex-col align-txt-left"
