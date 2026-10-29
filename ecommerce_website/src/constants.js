@@ -9,6 +9,7 @@ export const ICONS = {
   REMOVE_FROM_CART: removeFromCartIcon,
   SEARCH: searchIcon,
 }
+
 export const SORT_BY = {
   NEWEST: "Newest",
   OLDEST: "Oldest",
@@ -19,10 +20,11 @@ export const SORT_BY = {
 export const AVAILABILITY = {
   IN_STOCK: "in-stock",
   OUT_OF_STOCK: "out-of-stock",
-  PREORDER: "preorder",
 }
 
 export const PRODUCT_CATEGORY = {
-  CATEGORY_1: "category-1",
-  CATEGORY_2: "category-2",
+  TOPS: "tops",
+  JACKETS: "jackets",
+  PANTS: "pants",
+  SKIRTS: "skirts",
 }

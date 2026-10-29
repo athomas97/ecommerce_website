@@ -27,7 +27,7 @@ function Checkout({parent_cart, onCartChange}) {
     // Render page
     return (
         <div className="page">
-            <h1 className="header flex-col align-txt-left">Your Cart</h1>
+            <h1 className="flex-col align-txt-left">Your Cart</h1>
             { subtotal > 0 ? (
                 <div id="checkout-container">
                     <div id="checkout-product-grid">

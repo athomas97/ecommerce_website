@@ -22,7 +22,7 @@ function App() {
       <nav id="nav-bar">
         <div className="right-side">
           <Link to="/catalog">
-            Catalog
+            <img id="logo" src="/ecommerce_website/src/assets/img/logo.png" alt="My Closet"/>
           </Link>
         </div>
         <Link to="/checkout">
