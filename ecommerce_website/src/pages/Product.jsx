@@ -6,7 +6,6 @@ import { formatIdToName } from '/src/utils/Common.utils'
 
 import products from '../assets/products.json'
 import QuantityInput from '/src/components/QuantityInput'
-import { SPARKLE } from '/src/constants'
 
 function Product({parent_cart, onCartChange}) {
     // Get product from json file
@@ -52,16 +51,6 @@ function Product({parent_cart, onCartChange}) {
         <div className="page">
             <div id="product-container">
                 <div class="product-img-container large-img">
-                    <img
-                        className="sparkle-top-left"
-                        src={SPARKLE}
-                        alt={name}
-                    />
-                    <img
-                        className="sparkle-bottom-right"
-                        src={SPARKLE}
-                        alt={name}
-                    />
                     <img src={getProductImageUrl(img_path)} alt={name} />
                 </div>
                 <div

@@ -3,10 +3,8 @@ import addToCartIcon from './assets/icons/add-to-cart.png'
 import removeFromCartIcon from './assets/icons/remove.png'
 import searchIcon from './assets/icons/search.png'
 import logoPNG from './assets/img/logo.png'
-import sparklePNG from './assets/img/sparkle.png'
 
 export const LOGO = logoPNG
-export const SPARKLE = sparklePNG
 
 export const ICONS = {
   CART: cartIcon,

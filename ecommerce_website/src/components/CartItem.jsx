@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import QuantityInput from '/src/components/QuantityInput'
 import { formatIdToName } from '/src/utils/Common.utils'
 import { getProductImageUrl } from '../utils/assetUrl'
-import { SPARKLE } from '/src/constants'
 
 function CartItem({
     product_id,
@@ -46,16 +45,6 @@ function CartItem({
             className="product-clickable-area product-img-container small-img"
             style={{ textDecoration: 'none' }}
         >
-            <img
-                className="sparkle-top-left"
-                src={SPARKLE}
-                alt={name}
-            />
-            <img
-                className="sparkle-bottom-right"
-                src={SPARKLE}
-                alt={name}
-            />
             <img
                 className="product-img"
                 src={getProductImageUrl(img_path)}

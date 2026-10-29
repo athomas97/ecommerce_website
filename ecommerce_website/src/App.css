@@ -65,8 +65,7 @@
 }
 
 .large-img {
-  max-width: 600px;
-  max-height: 800px;
+  max-width: 500px;
 }
 
 .icon {
@@ -183,39 +182,18 @@
   transform: scale(1.1);
 }
 
+.product-clickable-area:hover .product-img-container::after,
+.product-clickable-area.product-img-container:hover::after {
+  opacity: 0.4;
+}
+
+.product-clickable-area:hover .sold-out {
+  opacity: 1;
+}
+
 .product-clickable-area:hover h3,
 .product-header:hover h3 {
   text-decoration: underline;
-}
-
-.sparkle-top-left,
-.sparkle-bottom-right {
-  position: absolute;
-  z-index: 1;
-  opacity: 0;
-}
-
-#product-container .sparkle-top-left,
-#product-container .sparkle-bottom-right {
-  width: 80px;
-  height: 80px;
-}
-
-.product-img-container .sparkle-top-left,
-.product-img-container .sparkle-bottom-right {
-  width: 50px;
-  height: 50px;
-}
-
-.sparkle-top-left {
-  left: 0px;
-  top: 0px;
-  transform: scaleX(-1);
-}
-
-.sparkle-bottom-right {
-  right: 0px;
-  bottom: 0px;
 }
 
 .product-img-container {
@@ -228,8 +206,6 @@
   &::after {
     content: "";
     position: absolute;
-    width: 350px;
-    height: 250px;
     border-radius: 50%;
     left: 50%;
     top: 50%;
@@ -241,39 +217,27 @@
     transition: opacity 0.3s ease;
   }
 
-  &:hover::after {
-    opacity: 0.15;
-  }
-
-  img:not(.sparkle-bottom-right, .sparkle-top-left) {
+  img {
     height: 90%;
     width: 90%;
     transition: transform 0.3s ease;
     filter: drop-shadow(0px 2px 2px #1d140b71)
             drop-shadow(0px 0px 20px #fdfdfd7a);
   }
-
-  &:hover img:not(.sparkle-bottom-right, .sparkle-top-left) {
-    transform: scale(1.05);
-  }
-
-  &:hover .sparkle-top-left,
-  &:hover .sparkle-bottom-right {
-    opacity: 1;
-  }
 }
 
-#product-container .product-img-container::after {
-  width: 450px;
-  height: 550px;
+#product-item .product-img-container::after {
+  width: 300px;
+  height: 300px;
+}
+
+#cart-item .product-img-container::after {
+  width: 250px;
+  height: 250px;
 }
 
 .sold-out {
   opacity: 0.6;
-
-  &:hover {
-    opacity: 1;
-  }
 }
 
 .product-info {

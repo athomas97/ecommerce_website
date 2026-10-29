@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react'
 
-import { ICONS, SPARKLE } from '/src/constants'
+import { ICONS } from '/src/constants'
 import { getProductImageUrl } from '../utils/assetUrl'
 
 function ProductCard({
@@ -46,22 +46,13 @@ function ProductCard({
 
   return (
     <Link
+      id="product-item"
       to={`/product/${product_id}`}
       className="product-clickable-area"
     >
       <div className="product-card sm-card space-between">
         <div className="product-img-container small-img">
           {isAvailabilityVisible && <h5 id="product-availability">{availability}</h5>}
-          <img
-            className="sparkle-top-left"
-            src={SPARKLE}
-            alt={name}
-          />
-          <img
-            className="sparkle-bottom-right"
-            src={SPARKLE}
-            alt={name}
-          />
           <img
             className={availability === "Out of Stock" ? "product-img sold-out" : "product-img"}
             src={getProductImageUrl(img_path)}
