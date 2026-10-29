@@ -29,6 +29,8 @@ function ProductCard({
     event.preventDefault();
     event.stopPropagation();
 
+    if (availability === "Out of Stock") return;
+
     onCartChange((prevCart) => ({
       ...prevCart,
       [key]: {
@@ -74,16 +76,25 @@ function ProductCard({
           </div>
           <div className="product-info">
             <h4>${cost}</h4>
-            <div style={{ position: 'relative' }} className="icon-hover">
+            <div
+              className={availability === "Out of Stock" ? "cart-icon" : "icon-hover cart-icon add-to-cart"}
+              onClick={(event) => handleAddToCart(
+                event,
+                name,
+                product_id,
+                cost,
+                size,
+                category,
+                img_path
+              )}
+            >
+              {availability != "Out of Stock" && (
+                <p class="cart-tag"><b>+</b></p>
+              )}
               <img
-                className="icon clickable"
+                className={availability === "Out of Stock" ? "icon disabled" : "icon clickable"}
                 src={cartIcon}
                 alt="Add to Cart"
-                onMouseEnter={() => setCartIcon(ICONS.ADD_TO_CART)}
-                onMouseLeave={() => setCartIcon(ICONS.CART)}
-                onClick={(event) => handleAddToCart(
-                  event, name, product_id, cost, size, category, img_path
-                )}
               />
             </div>
           </div>

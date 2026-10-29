@@ -22,6 +22,7 @@ function Product({parent_cart, onCartChange}) {
     const img_path = product.img_path
     const size = product.size
     const category_name = formatIdToName(category)
+    const availability = product.availability
     const [quantity, setQuantity] = useState(1);
     const [cart, updateCart] = useState(parent_cart);
 
@@ -31,6 +32,8 @@ function Product({parent_cart, onCartChange}) {
     };
 
     const handleAddToCart = (key, product_id, cost, size, category, img_path) => {
+        if (availability === "Out of Stock") return;
+
         onCartChange(prevCart => ({
         ...prevCart,
         [key]: {
@@ -85,7 +88,7 @@ function Product({parent_cart, onCartChange}) {
                             onChangeValue={handleQuantityChange}
                         />
                         <button
-                            className="primary-btn"
+                            className={availability === "Out of Stock" ? "primary-btn disabled" : "primary-btn"}
                             onClick={() => handleAddToCart(
                                 name, product_id, cost, size, category_name, img_path
                             )}
