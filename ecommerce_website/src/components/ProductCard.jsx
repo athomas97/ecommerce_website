@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react'
 
-import { ICONS } from '/src/constants'
+import { ICONS, SPARKLE } from '/src/constants'
 import { getProductImageUrl } from '../utils/assetUrl'
 
 function ProductCard({
@@ -47,12 +47,12 @@ function ProductCard({
           {isAvailabilityVisible && <h5 id="product-availability">{availability}</h5>}
           <img
             className="sparkle-top-left"
-            src={getProductImageUrl("./src/assets/img/sparkle.png")}
+            src={getProductImageUrl(SPARKLE)}
             alt={name}
           />
           <img
             className="sparkle-bottom-right"
-            src={getProductImageUrl("./src/assets/img/sparkle.png")}
+            src={getProductImageUrl(SPARKLE)}
             alt={name}
           />
           <img
