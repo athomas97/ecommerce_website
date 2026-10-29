@@ -30,13 +30,15 @@ function Product({parent_cart, onCartChange}) {
         setQuantity(data);
     };
 
-    const handleAddToCart = (key, product_id, cost, img_path) => {
+    const handleAddToCart = (key, product_id, cost, size, category, img_path) => {
         onCartChange(prevCart => ({
         ...prevCart,
         [key]: {
             'product_id': product_id,
             'quantity': prevCart[key] ? prevCart[key].quantity + quantity : quantity,
             'cost': cost,
+            'size': size,
+            'category': category,
             'img_path': img_path,
         }
         }));
@@ -85,7 +87,7 @@ function Product({parent_cart, onCartChange}) {
                         <button
                             className="primary-btn"
                             onClick={() => handleAddToCart(
-                                name, product_id, cost, img_path
+                                name, product_id, cost, size, category_name, img_path
                             )}
                         >
                             <h3>Add to Cart</h3>

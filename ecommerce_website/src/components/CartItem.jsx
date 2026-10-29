@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import QuantityInput from '/src/components/QuantityInput'
+import { formatIdToName } from '/src/utils/Common.utils'
 import { getProductImageUrl } from '../utils/assetUrl'
 import { SPARKLE } from '/src/constants'
 
@@ -9,6 +10,8 @@ function CartItem({
     name,
     img_path,
     cost,
+    size,
+    category,
     quantity,
     onCartChange
 }) {
@@ -72,7 +75,7 @@ function CartItem({
                     >
                         <h3><b>{name}</b></h3>
                     </Link>
-                    <p>Size L • category</p>
+                    <p>Size {size} • {formatIdToName(category)}</p>
                 </div>
                 <h4><b>${(cost*quantity).toFixed(2)}</b></h4>
             </div>

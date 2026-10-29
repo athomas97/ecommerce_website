@@ -8,8 +8,9 @@ function ProductCard({
   product_id,
   name,
   img_path,
-  size,
   cost,
+  size,
+  category,
   availability="In Stock",
   onCartChange
 }) {
@@ -21,6 +22,8 @@ function ProductCard({
     key,
     product_id,
     cost,
+    size,
+    category,
     img_path
   ) => {
     event.preventDefault();
@@ -32,6 +35,8 @@ function ProductCard({
         'product_id': product_id,
         'quantity': prevCart[key] ? prevCart[key].quantity + 1 : 1,
         'cost': cost,
+        'size': size,
+        'category': category,
         'img_path': img_path,
       }
     }));
@@ -77,7 +82,7 @@ function ProductCard({
                 onMouseEnter={() => setCartIcon(ICONS.ADD_TO_CART)}
                 onMouseLeave={() => setCartIcon(ICONS.CART)}
                 onClick={(event) => handleAddToCart(
-                  event, name, product_id, cost, img_path
+                  event, name, product_id, cost, size, category, img_path
                 )}
               />
             </div>

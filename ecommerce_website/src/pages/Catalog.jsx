@@ -82,8 +82,9 @@ function Catalog({parent_cart, onCartChange}) {
                                 key={product.name}
                                 name={product.name}
                                 img_path={product.img_path}
-                                size={product.size}
                                 cost={product.cost}
+                                size={product.size}
+                                category={product.category}
                                 availability={product.availability}
                                 onCartChange={handleCartChange}
                             />

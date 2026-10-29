@@ -9,6 +9,7 @@
                 "img_path": "/ecommerce_website/src/assets/img/shirt_1.png",
                 "cost": "10.99",
                 "size": "L",
+                "category": "tops",
                 "availability": "In Stock",
                 "created_at": "2025-02-06T18:30:00Z"
             },
@@ -19,6 +20,7 @@
                 "img_path": "/ecommerce_website/src/assets/img/shirt_2.png",
                 "cost": "20.99",
                 "size": "XL",
+                "category": "tops",
                 "availability": "In Stock",
                 "created_at": "2024-04-10T18:30:00Z"
             },
@@ -29,6 +31,7 @@
                 "img_path": "/ecommerce_website/src/assets/img/shirt_3.png",
                 "cost": "10.99",
                 "size": "S",
+                "category": "tops",
                 "availability": "In Stock",
                 "created_at": "2025-10-07T18:30:00Z"
             },
@@ -39,6 +42,7 @@
                 "img_path": "/ecommerce_website/src/assets/img/shirt_4.png",
                 "cost": "25.99",
                 "size": "M",
+                "category": "tops",
                 "availability": "In Stock",
                 "created_at": "2026-01-13T18:30:00Z"
             }
@@ -54,6 +58,7 @@
                 "img_path": "/ecommerce_website/src/assets/img/jacket_1.png",
                 "cost": "50.99",
                 "size": "M",
+                "category": "jackets",
                 "availability": "In Stock",
                 "created_at": "2026-01-21T18:30:00Z"
             },
@@ -64,6 +69,7 @@
                 "img_path": "/ecommerce_website/src/assets/img/jacket_2.png",
                 "cost": "45.99",
                 "size": "L",
+                "category": "jackets",
                 "availability": "Out of Stock",
                 "created_at": "2026-03-19T18:30:00Z"
             }
@@ -79,6 +85,7 @@
                 "img_path": "/ecommerce_website/src/assets/img/pants_1.png",
                 "cost": "30.99",
                 "size": "L",
+                "category": "pants",
                 "availability": "In Stock",
                 "created_at": "2026-04-19T20:45:00Z"
             },
@@ -89,6 +96,7 @@
                 "img_path": "/ecommerce_website/src/assets/img/pants_2.png",
                 "cost": "30.99",
                 "size": "10",
+                "category": "pants",
                 "availability": "Out of Stock",
                 "created_at": "2025-12-21T20:45:00Z"
             }
@@ -104,6 +112,7 @@
                 "img_path": "/ecommerce_website/src/assets/img/skirt_1.png",
                 "cost": "25.99",
                 "size": "L",
+                "category": "skirts",
                 "availability": "Out of Stock",
                 "created_at": "2026-06-01T20:45:00Z"
             },
@@ -114,6 +123,7 @@
                 "img_path": "/ecommerce_website/src/assets/img/skirt_2.png",
                 "cost": "25.99",
                 "size": "L",
+                "category": "skirts",
                 "availability": "Out of Stock",
                 "created_at": "2025-08-22T20:45:00Z"
             }

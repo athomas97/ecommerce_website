@@ -37,6 +37,8 @@ function Checkout({parent_cart, onCartChange}) {
                                 name={productName}
                                 img_path={product.img_path}
                                 cost={product.cost}
+                                size={product.size}
+                                category={product.category}
                                 quantity={product.quantity}
                                 onCartChange={handleCartChange}
                             />
