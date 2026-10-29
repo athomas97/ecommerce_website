@@ -24,7 +24,7 @@ function App() {
       <nav id="nav-bar">
         <div className="right-side">
           <Link to="/catalog">
-            <img id="logo" src={getProductImageUrl(LOGO)} alt="My Closet"/>
+            <img id="logo" src={LOGO} alt="My Closet"/>
           </Link>
         </div>
         <Link to="/checkout">

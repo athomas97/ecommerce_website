@@ -45,12 +45,12 @@ function CartItem({
         >
             <img
                 className="sparkle-top-left"
-                src={getProductImageUrl(SPARKLE)}
+                src={SPARKLE}
                 alt={name}
             />
             <img
                 className="sparkle-bottom-right"
-                src={getProductImageUrl(SPARKLE)}
+                src={SPARKLE}
                 alt={name}
             />
             <img

@@ -49,12 +49,12 @@ function Product({parent_cart, onCartChange}) {
                 <div class="product-img-container large-img">
                     <img
                         className="sparkle-top-left"
-                        src={getProductImageUrl(SPARKLE)}
+                        src={SPARKLE}
                         alt={name}
                     />
                     <img
                         className="sparkle-bottom-right"
-                        src={getProductImageUrl(SPARKLE)}
+                        src={SPARKLE}
                         alt={name}
                     />
                     <img src={getProductImageUrl(img_path)} alt={name} />

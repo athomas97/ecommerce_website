@@ -47,12 +47,12 @@ function ProductCard({
           {isAvailabilityVisible && <h5 id="product-availability">{availability}</h5>}
           <img
             className="sparkle-top-left"
-            src={getProductImageUrl(SPARKLE)}
+            src={SPARKLE}
             alt={name}
           />
           <img
             className="sparkle-bottom-right"
-            src={getProductImageUrl(SPARKLE)}
+            src={SPARKLE}
             alt={name}
           />
           <img
