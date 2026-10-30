@@ -13,24 +13,27 @@ function SearchBar({ value, onSearchChange }) {
   };
 
   return (
-    <div
-      id="search-bar"
-      onClick={focusSearchInput}
-      style={{ display: 'flex', alignItems: 'center', gap: '5px', width: '100%' }}
-    >
-      <img
-        src={ICONS.SEARCH}
-        alt="Search Icon"
-      />
-      <input
-        ref={inputRef}
-        type="text"
-        id="search"
-        name="search"
-        placeholder="Search"
-        value={value}
-        onChange={(event) => onSearchChange(event.target.value)}
-      />
+    <div className="flex-col filter-category-container">
+      <h5>Search</h5>
+      <div
+        id="search-bar"
+        onClick={focusSearchInput}
+        style={{ display: 'flex', alignItems: 'center', gap: '5px', width: '100%' }}
+      >
+        <img
+          src={ICONS.SEARCH}
+          alt="Search Icon"
+        />
+        <input
+          ref={inputRef}
+          type="text"
+          id="search"
+          name="search"
+          placeholder="Search"
+          value={value}
+          onChange={(event) => onSearchChange(event.target.value)}
+        />
+      </div>
     </div>
   );
 }

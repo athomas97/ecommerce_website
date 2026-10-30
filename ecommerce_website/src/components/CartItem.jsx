@@ -36,27 +36,21 @@ function CartItem({
 
   return (
     <div
-        className="product-card"
+        className="product-card cart-container-grid"
         id="cart-item"
-        style={{ display: 'flex', gap: '20px' }}
     >
         <Link
             to={`/product/${product_id}`}
-            className="product-clickable-area product-img-container small-img"
-            style={{ textDecoration: 'none' }}
+            className="product-clickable-area product-img-container"
         >
             <img
-                className="product-img"
                 src={getProductImageUrl(img_path)}
                 alt={name}
             />
         </Link>
-        <div
-            style={{ justifyContent: 'space-between', height: '100%', width: '100%' }}
-            className="flex-col"
-        >
-            <div style={{ display: 'flex', width: '100%' }}>
-                <div style={{  width: '100%' }}>
+        <div className="flex-col product-info-checkout">
+            <div>
+                <div>
                     <Link
                         to={`/product/${product_id}`}
                         className="product-clickable-area"
@@ -68,9 +62,7 @@ function CartItem({
                 </div>
                 <h4><b>${(cost*quantity).toFixed(2)}</b></h4>
             </div>
-            <div
-                style={{ display: 'flex', gap: '20px', alignItems: 'center', width: '100%' }}
-            >
+            <div>
                 <QuantityInput
                     label_text="Quantity"
                     default_quantity={quantity}
