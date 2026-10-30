@@ -50,8 +50,8 @@ function ProductCard({
       to={`/product/${product_id}`}
       className="product-clickable-area"
     >
-      <div className="product-card sm-card space-between">
-        <div className="product-img-container small-img">
+      <div className="product-card">
+        <div className="product-img-container">
           {isAvailabilityVisible && <h5 id="product-availability">{availability}</h5>}
           <img
             className={availability === "Out of Stock" ? "product-img sold-out" : "product-img"}
@@ -60,7 +60,7 @@ function ProductCard({
           />
         </div>
         {/* TODO: Clamp product name txt after 2 lines */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-1)', width: '100%' }}>
+        <div className="product-info-product">
           <div>
             <h3 className="product-title">{name}</h3>
             <p>Size {size} </p>
