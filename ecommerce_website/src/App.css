@@ -588,13 +588,12 @@ button {
     gap: var(--spacing-3);
   }
 
-  #checkout-product-grid {
-    width: 100%;
-  }
-
-  .left-side,
   .right-side {
     width: 500px;
+  }
+
+  #checkout-product-grid {
+    width: 100%;
   }
 }
 
