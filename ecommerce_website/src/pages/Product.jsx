@@ -49,9 +49,14 @@ function Product({parent_cart, onCartChange}) {
     // Render page
     return (
         <div className="page">
-            <div id="product-container">
-                <div class="product-img-container large-img">
-                    <img src={getProductImageUrl(img_path)} alt={name} />
+            <div id="product-container-grid">
+                {/* TODO: Image sizes out weird */}
+                <div>
+                    <img
+                        src={getProductImageUrl(img_path)}
+                        alt={name}
+                        style={{ width: '100%' }}
+                    />
                 </div>
                 <div
                     id="product-info-container"
