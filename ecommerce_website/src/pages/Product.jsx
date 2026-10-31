@@ -50,12 +50,10 @@ function Product({parent_cart, onCartChange}) {
     return (
         <div className="page">
             <div id="product-container-grid">
-                {/* TODO: Image sizes out weird */}
-                <div>
+                <div className="product-pg-img-container">
                     <img
                         src={getProductImageUrl(img_path)}
                         alt={name}
-                        style={{ width: '100%' }}
                     />
                 </div>
                 <div
@@ -64,7 +62,10 @@ function Product({parent_cart, onCartChange}) {
                 >
                     <div className="header flex-col align-txt-left">
                         <h1>{name}</h1>
-                        <p>Size {size} • {category_name}</p>
+                        <div className="availability-sizing-and-category">
+                            {availability === "Out of Stock" && <h5 id="product-availability">{availability}</h5>}
+                            <p>Size {size} • {category_name}</p>
+                        </div>
                     </div>
                     <h2>${cost}</h2>
                     <div

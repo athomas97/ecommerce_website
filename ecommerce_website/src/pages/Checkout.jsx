@@ -97,7 +97,7 @@ function Checkout({parent_cart, onCartChange}) {
                 </div>
             ) :(
                 <div id="checkout-container">
-                    <div className="center">
+                    <div id="empty-checkout" className="center">
                         <img
                             className="icon-big"
                             src={ICONS.CART}
