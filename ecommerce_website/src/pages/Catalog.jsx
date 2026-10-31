@@ -10,7 +10,7 @@ import FilterBar from '../components/FilterBar'
 
 function Catalog({parent_cart, onCartChange}) {
     const [filters, setFilters] = useState({
-        "sort_by": Object.values(SORT_BY)[0],
+        "sort_by": (Object.values(SORT_BY)[0]).toLowerCase(),
         "name": '',
         "availability": createFilters(AVAILABILITY),
         "price": {

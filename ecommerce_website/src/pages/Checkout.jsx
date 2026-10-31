@@ -27,6 +27,7 @@ function Checkout({parent_cart, onCartChange}) {
     // Render page
     return (
         <div className="page">
+            {/* TODO: Some weird spacing happens when making the window width smallar */}
             <h1 className="flex-col align-txt-left">Your Cart</h1>
             { subtotal > 0 ? (
                 <div id="checkout-container">
@@ -90,13 +91,13 @@ function Checkout({parent_cart, onCartChange}) {
                             </div>
                         </div>
                         <button className="primary-btn">
-                            <h3>Proceed to Checkout</h3>
+                            <h3>Checkout</h3>
                         </button>
                     </div>
                 </div>
             ) :(
                 <div id="checkout-container">
-                    <div className="left-side center">
+                    <div className="center">
                         <img
                             className="icon-big"
                             src={ICONS.CART}
