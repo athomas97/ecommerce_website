@@ -77,7 +77,7 @@ function FilterBar({ onFilterChange }) {
     }, []);
 
     return (
-        <div id="filter-bar" className="flex-col">
+        <div id="filter-bar">
             <h4 className="filter-title"><b>Filter</b></h4>
             <div
                 className="filter-title filter-btn secondary-btn"
