@@ -1,5 +1,6 @@
 import './App.css'
 
+import { useCallback } from 'react';
 import { BrowserRouter, Routes, Route, Link, Navigate } from 'react-router-dom';
 import { calculateCartQuantity } from '/src/utils/Common.utils'
 import { LOGO } from '/src/constants'
@@ -7,6 +8,7 @@ import { LOGO } from '/src/constants'
 import Catalog from "./pages/Catalog"
 import Product from "./pages/Product"
 import Checkout from "./pages/Checkout"
+import OrderConfirmation from "./pages/OrderConfirmation"
 import CartIcon from "./components/CartIcon"
 import { usePersistedState } from '/src/hooks/usePersistedState'
 
@@ -14,9 +16,9 @@ function App() {
   const [cart, updateCart] = usePersistedState('cart', {});
 
   // Callback Function
-  const handleCartChange = (data) => {
-      updateCart(data);
-  };
+  const handleCartChange = useCallback((data) => {
+    updateCart(data);
+  }, [updateCart]);
 
   return (
     <BrowserRouter basename={import.meta.env.BASE_URL}>
@@ -59,6 +61,12 @@ function App() {
               parent_cart={cart} 
               onCartChange={handleCartChange}
             />
+          }
+        />
+        <Route
+          path="/order-confirmation"
+          element={
+            <OrderConfirmation onCartChange={handleCartChange} />
           }
         />
       </Routes>
