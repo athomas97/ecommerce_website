@@ -6,6 +6,7 @@ import menuIcon from './assets/icons/menu.png'
 import logoPNG from './assets/img/logo.png'
 
 export const LOGO = logoPNG
+export const CHECKOUT_API_URL = "https://ecommerce-backend.ecommerce-website-backend.workers.dev"
 
 export const ICONS = {
   CART: cartIcon,

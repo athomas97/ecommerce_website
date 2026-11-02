@@ -80,7 +80,7 @@ function ProductCard({
               )}
             >
               {availability != "Out of Stock" && (
-                <p class="cart-tag"><b>+</b></p>
+                <p className="cart-tag"><b>+</b></p>
               )}
               <img
                 className={availability === "Out of Stock" ? "icon disabled" : "icon clickable"}

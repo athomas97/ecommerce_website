@@ -21,7 +21,7 @@ function QuantityInput({
     };
 
     return (
-        <div class="quantity-input-container">
+        <div className="quantity-input-container">
             <button
                 onClick={() => decreaseQuantity()}
                 style={{
