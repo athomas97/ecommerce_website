@@ -16,7 +16,8 @@
   --h1-font-size: 36px;
   --h2-font-size: 28px;
   --h3-font-size: 24px;
-  --p-font-size: 12px;
+  --h4-font-size: 18px;
+  --p-font-size: 15px;
   --label-font-size: 10px;
   --border-radius: 10px;
   --border-radius-lrg: 40px;
@@ -658,7 +659,7 @@ button {
 #empty-checkout {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-2);
+  gap: var(--spacing-4);
 }
 
 #free-shipping-container {
@@ -754,6 +755,7 @@ button {
   text-align: left;
   border: 1.5px solid var(--dark-brown);
   background-color: var(--light-beige);
+  width: 50%;
 }
 
 .warning-modal.is_open {
