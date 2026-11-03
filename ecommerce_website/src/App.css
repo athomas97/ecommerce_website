@@ -721,6 +721,62 @@ button {
   align-items: center;
 }
 
+/* Checkout Warning Modal */
+.warning-modal-wrapper {
+  display: none;
+  position: fixed;
+  inset: 0;
+}
+
+.warning-modal-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 99;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.warning-modal-wrapper:has(.warning-modal.is_open) {
+  display: block;
+}
+
+.warning-modal {
+  display: none;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  position: absolute;
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: var(--spacing-5);
+  border-radius: var(--border-radius-lrg);
+  text-align: left;
+  border: 1.5px solid var(--dark-brown);
+  background-color: var(--light-beige);
+}
+
+.warning-modal.is_open {
+  display: flex;
+}
+
+.warning-modal #close-icon {
+  align-self: flex-end;
+}
+
+.warning-modal .button-container {
+  display: flex;
+  gap: var(--spacing-3);
+
+  button {
+    width: 100%;
+  }
+
+  .primary-btn h4 {
+    color: var(--white);
+  }
+}
+
 @media (max-width: 950px) {
   /* Checkout PG */
   #checkout-container {
