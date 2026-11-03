@@ -62,11 +62,10 @@ function Checkout({parent_cart, onCartChange}) {
     };
 
     // Render page
-    return (
-        <div className="page">
-            {/* TODO: Some weird spacing happens when making the window width smallar */}
-            <h1 className="flex-col align-txt-left">Your Cart</h1>
-            { subtotal > 0 ? (
+    if (subtotal > 0) {
+        return (
+            <div className="page">
+                <h1 className="flex-col align-txt-left">Your Cart</h1>
                 <div id="checkout-container">
                     <div id="checkout-product-grid">
                         {Object.entries(cart).map(([productName, product]) => (
@@ -185,7 +184,11 @@ function Checkout({parent_cart, onCartChange}) {
                         </div>
                     </div>
                 </div>
-            ) :(
+            </div>
+        )
+    } else {
+        return (
+            <div className="page">
                 <div id="checkout-container">
                     <div id="empty-checkout" className="center">
                         <img
@@ -201,9 +204,9 @@ function Checkout({parent_cart, onCartChange}) {
                         </Link>
                     </div>
                 </div>
-            )}
-        </div>
-    )
+            </div>
+        )
+    }
 }
 
 export default Checkout
