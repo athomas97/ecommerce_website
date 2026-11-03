@@ -1,17 +1,20 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { sort } from '../utils/Sorting.utils'
 import { filter } from '../utils/Filter.utils'
 import { createFilters } from '../utils/Common.utils'
-import { SORT_BY, AVAILABILITY, PRODUCT_CATEGORY } from '../constants'
+import { SORT_BY, AVAILABILITY, PRODUCT_CATEGORY, ICONS } from '../constants'
 
 import products from '../assets/products.json'
 import ProductCard from '../components/ProductCard'
 import FilterBar from '../components/FilterBar'
 
 function Catalog({parent_cart, onCartChange}) {
+    const [searchParams] = useSearchParams();
+    const searchQuery = searchParams.get('search') ?? '';
     const [filters, setFilters] = useState({
         "sort_by": (Object.values(SORT_BY)[0]).toLowerCase(),
-        "name": '',
+        "name": searchQuery,
         "availability": createFilters(AVAILABILITY),
         "price": {
             "min": '',
@@ -20,6 +23,13 @@ function Catalog({parent_cart, onCartChange}) {
         "category": createFilters(PRODUCT_CATEGORY),
     });
     const [cart, updateCart] = useState(parent_cart);
+
+    useEffect(() => {
+        setFilters((prevFilters) => ({
+            ...prevFilters,
+            name: searchQuery,
+        }));
+    }, [searchQuery]);
 
     // Callback Functions
     const handleCartChange = (data) => {
@@ -76,19 +86,31 @@ function Catalog({parent_cart, onCartChange}) {
                         onFilterChange={handleFilterChange}
                     />
                     <div id="catalog-product-grid">
-                        {sorted_products.map((product) => (
-                            <ProductCard
-                                product_id={product.product_id}
-                                key={product.name}
-                                name={product.name}
-                                img_path={product.img_path}
-                                cost={product.cost}
-                                size={product.size}
-                                category={product.category}
-                                availability={product.availability}
-                                onCartChange={handleCartChange}
-                            />
-                        ))}
+                        {sorted_products.length > 0 ? (
+                            sorted_products.map((product) => (
+                                <ProductCard
+                                    product_id={product.product_id}
+                                    key={product.name}
+                                    name={product.name}
+                                    img_path={product.img_path}
+                                    cost={product.cost}
+                                    size={product.size}
+                                    category={product.category}
+                                    availability={product.availability}
+                                    onCartChange={handleCartChange}
+                                />
+                            ))
+                        ) : (
+                            <div id="no-results" className="center">
+                                <img
+                                    className="icon-big"
+                                    src={ICONS.NO_RESULTS}
+                                />
+                                <div>
+                                    <p>No Products Found</p>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

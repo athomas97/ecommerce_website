@@ -1,40 +1,39 @@
-import { useRef } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import { ICONS } from '/src/constants'
 
-function SearchBar({ value, onSearchChange }) {
-  const inputRef = useRef(null);
+function SearchBar() {
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const activeSearch = searchParams.get('search') ?? '';
+  const [query, setQuery] = useState(activeSearch);
 
-  const focusSearchInput = (event) => {
-    if (event.target.closest('img')) {
-      return;
-    }
-    inputRef.current?.focus();
+  useEffect(() => {
+    setQuery(activeSearch);
+  }, [activeSearch]);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const search = query.trim();
+    navigate(search ? `/catalog?search=${encodeURIComponent(search)}` : '/catalog');
   };
 
   return (
-    <div className="flex-col filter-category-container">
-      <h5>Search</h5>
-      <div
-        id="search-bar"
-        onClick={focusSearchInput}
-        style={{ display: 'flex', alignItems: 'center', gap: '5px', width: '100%' }}
-      >
-        <img
-          src={ICONS.SEARCH}
-          alt="Search Icon"
-        />
-        <input
-          ref={inputRef}
-          type="text"
-          id="search"
-          name="search"
-          placeholder="Search"
-          value={value}
-          onChange={(event) => onSearchChange(event.target.value)}
-        />
-      </div>
-    </div>
+    <form id="search-bar" onSubmit={handleSubmit}>
+      <input
+        type="search"
+        id="search"
+        name="search"
+        placeholder="Search products"
+        aria-label="Search products"
+        value={query}
+        onChange={(event) => setQuery(event.target.value)}
+      />
+      <button type="submit" aria-label="Search">
+        <img src={ICONS.SEARCH} alt="" />
+      </button>
+    </form>
   );
 }
 

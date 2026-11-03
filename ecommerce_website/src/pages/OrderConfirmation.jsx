@@ -64,7 +64,6 @@ function OrderConfirmation({ onCartChange }) {
                     <img
                         className="icon-big"
                         src={confirmationContent.img}
-                        alt="cart icon"
                     />
                     <div>
                         <h2>{confirmationContent.title}</h2>
