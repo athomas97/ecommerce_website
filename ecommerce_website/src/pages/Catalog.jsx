@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { sort } from '../utils/Sorting.utils'
 import { filter } from '../utils/Filter.utils'
 import { createFilters } from '../utils/Common.utils'
-import { SORT_BY, AVAILABILITY, PRODUCT_CATEGORY } from '../constants'
+import { SORT_BY, AVAILABILITY, PRODUCT_CATEGORY, ICONS } from '../constants'
 
 import products from '../assets/products.json'
 import ProductCard from '../components/ProductCard'
@@ -86,19 +86,31 @@ function Catalog({parent_cart, onCartChange}) {
                         onFilterChange={handleFilterChange}
                     />
                     <div id="catalog-product-grid">
-                        {sorted_products.map((product) => (
-                            <ProductCard
-                                product_id={product.product_id}
-                                key={product.name}
-                                name={product.name}
-                                img_path={product.img_path}
-                                cost={product.cost}
-                                size={product.size}
-                                category={product.category}
-                                availability={product.availability}
-                                onCartChange={handleCartChange}
-                            />
-                        ))}
+                        {sorted_products.length > 0 ? (
+                            sorted_products.map((product) => (
+                                <ProductCard
+                                    product_id={product.product_id}
+                                    key={product.name}
+                                    name={product.name}
+                                    img_path={product.img_path}
+                                    cost={product.cost}
+                                    size={product.size}
+                                    category={product.category}
+                                    availability={product.availability}
+                                    onCartChange={handleCartChange}
+                                />
+                            ))
+                        ) : (
+                            <div id="no-results" className="center">
+                                <img
+                                    className="icon-big"
+                                    src={ICONS.NO_RESULTS}
+                                />
+                                <div>
+                                    <p>No Products Found</p>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

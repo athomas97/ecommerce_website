@@ -685,6 +685,7 @@ button {
   }
 }
 
+#no-results,
 #empty-checkout {
   display: flex;
   flex-direction: column;

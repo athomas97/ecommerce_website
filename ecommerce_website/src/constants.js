@@ -2,6 +2,7 @@ import cartIcon from './assets/icons/shopping-cart.png'
 import addToCartIcon from './assets/icons/add-to-cart.png'
 import removeFromCartIcon from './assets/icons/remove.png'
 import searchIcon from './assets/icons/search.png'
+import noResultsIcon from './assets/icons/no-results.png'
 import menuIcon from './assets/icons/menu.png'
 import paymentVerifyingIcon from './assets/icons/payment-verifying.png'
 import paymentSuccessIcon from './assets/icons/payment-success.png'
@@ -20,6 +21,7 @@ export const ICONS = {
   PAYMENT_SUCCESS: paymentSuccessIcon,
   PAYMENT_FAIL: paymentFailIcon,
   PAYMENT_VERIFYING: paymentVerifyingIcon,
+  NO_RESULTS: noResultsIcon,
 }
 
 export const SORT_BY = {
