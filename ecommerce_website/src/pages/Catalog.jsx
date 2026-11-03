@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { sort } from '../utils/Sorting.utils'
 import { filter } from '../utils/Filter.utils'
 import { createFilters } from '../utils/Common.utils'
@@ -9,9 +10,11 @@ import ProductCard from '../components/ProductCard'
 import FilterBar from '../components/FilterBar'
 
 function Catalog({parent_cart, onCartChange}) {
+    const [searchParams] = useSearchParams();
+    const searchQuery = searchParams.get('search') ?? '';
     const [filters, setFilters] = useState({
         "sort_by": (Object.values(SORT_BY)[0]).toLowerCase(),
-        "name": '',
+        "name": searchQuery,
         "availability": createFilters(AVAILABILITY),
         "price": {
             "min": '',
@@ -20,6 +23,13 @@ function Catalog({parent_cart, onCartChange}) {
         "category": createFilters(PRODUCT_CATEGORY),
     });
     const [cart, updateCart] = useState(parent_cart);
+
+    useEffect(() => {
+        setFilters((prevFilters) => ({
+            ...prevFilters,
+            name: searchQuery,
+        }));
+    }, [searchQuery]);
 
     // Callback Functions
     const handleCartChange = (data) => {

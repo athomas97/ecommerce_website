@@ -10,6 +10,7 @@ import Product from "./pages/Product"
 import Checkout from "./pages/Checkout"
 import OrderConfirmation from "./pages/OrderConfirmation"
 import CartIcon from "./components/CartIcon"
+import SearchBar from './components/SearchBar'
 import { usePersistedState } from '/src/hooks/usePersistedState'
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
             <img id="logo" src={LOGO} alt="My Closet"/>
           </Link>
         </div>
+        <SearchBar />
         <Link to="/checkout">
           <CartIcon quantity={calculateCartQuantity(cart)}/>
         </Link>

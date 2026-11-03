@@ -1,58 +1,17 @@
 import { useState, useEffect } from 'react';
-import { createFilters, createCheckboxes } from '../utils/Common.utils'
+import { createCheckboxes } from '../utils/Common.utils'
 import { SORT_BY, AVAILABILITY, PRODUCT_CATEGORY } from '../constants'
 import { ICONS } from '/src/constants'
 
-import SearchBar from './SearchBar'
 import DropDownInput from './DropDownInput'
 import PriceRangeFilter from './PriceRangeFilter'
 import MultiSelectDropDown from './MultiSelectDropDown'
 
 function FilterBar({ onFilterChange }) {
     const [isOpen, setIsOpen] = useState(false);
-    const [filters, setFilters] = useState({
-        'sort_by': Object.values(SORT_BY)[0],
-        "name": '',
-        "availability": createFilters(AVAILABILITY),
-        "price": {
-            "min": '',
-            "max": '' 
-        },
-        "category": createFilters(PRODUCT_CATEGORY),
-    });
 
     // Callback functions
     const handleFilterChange = (nextRange) => {
-        setFilters((prevFilters) => {
-            const nextFilters = { ...prevFilters };
-            if (nextRange.sort_by) {
-                nextFilters.sort_by = nextRange.sort_by;
-            }
-            if (nextRange.name !== undefined) {
-                nextFilters.name = nextRange.name;
-            }
-            // TODO: Handles errors if availability is not a valid type
-            if (nextRange.availability) {
-                nextFilters.availability = {
-                    ...prevFilters.availability,
-                    ...nextRange.availability,
-                };
-            }
-            if (nextRange.price) {
-                nextFilters.price = {
-                    ...prevFilters.price,
-                    ...nextRange.price,
-                };
-            }
-            // TODO: Handles errors if category is not a valid type
-            if (nextRange.category) {
-                nextFilters.category = {
-                    ...prevFilters.category,
-                    ...nextRange.category,
-                };
-            }
-            return nextFilters;
-        });
         onFilterChange?.(nextRange);
     };
 
@@ -100,10 +59,6 @@ function FilterBar({ onFilterChange }) {
                     </h4>
                     <h2 className="align-txt-left"><b>Filter</b></h2>
                 </div>
-                <SearchBar
-                    value={filters.name}
-                    onSearchChange={(name) => handleFilterChange({ name })}
-                />
                 <DropDownInput
                     label_text="Sort By"
                     options={SORT_BY}
