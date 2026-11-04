@@ -84,3 +84,9 @@ a {
 .label_text, .price-input-container.is-open p {
   font-size: var(--label-font-size);
 }
+
+@media (max-width: 680px) {
+  #root {
+    padding: 20px 20px;
+  }
+}
