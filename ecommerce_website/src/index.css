@@ -63,11 +63,11 @@ h2 {
     font-size: var(--h2-font-size);
   }
 }
-h3, #quantity-input input {
+h3 {
   font-size: var(--h3-font-size);
   margin: 0;
 }
-h4 {
+h4, #quantity-input input {
   font-size: var(--h4-font-size);
   margin: 0;
 }
