@@ -57,6 +57,10 @@ function OrderConfirmation({ onCartChange }) {
 
     const confirmationContent = CONFIRMATION_CONTENT[verificationStatus];
 
+    useEffect(() => {
+        document.title = `My Closet - ${confirmationContent.title}`;
+    }, [confirmationContent.title]);
+
     return (
         <div className="page">
             <div id="checkout-container">

@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { filterByProductId } from '../utils/Filter.utils'
 import { getProductImageUrl } from '../utils/assetUrl'
 import { formatIdToName } from '/src/utils/Common.utils'
@@ -13,6 +13,10 @@ function Product({parent_cart, onCartChange}) {
     const { product, category } = filterByProductId(
         Number(product_id), products
     );
+
+    useEffect(() => {
+        document.title = `My Closet - ${product.name}`;
+    }, [product.name]);
 
     // Set Variables
     const name = product.name
