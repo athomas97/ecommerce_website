@@ -3,7 +3,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import { ICONS } from '/src/constants'
 
-function SearchBar() {
+function SearchBar({ onSearch }) {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const activeSearch = searchParams.get('search') ?? '';
@@ -17,6 +17,7 @@ function SearchBar() {
     event.preventDefault();
     const search = query.trim();
     navigate(search ? `/catalog?search=${encodeURIComponent(search)}` : '/catalog');
+    onSearch?.();
   };
 
   return (

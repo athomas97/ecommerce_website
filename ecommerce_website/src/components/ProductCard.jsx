@@ -62,7 +62,7 @@ function ProductCard({
         {/* TODO: Clamp product name txt after 2 lines */}
         <div className="product-info-product">
           <div>
-            <h3 className="product-title">{name}</h3>
+            <h4 className="product-title">{name}</h4>
             <p>Size {size} </p>
           </div>
           <div className="product-info">

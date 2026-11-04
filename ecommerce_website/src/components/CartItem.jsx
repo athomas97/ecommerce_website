@@ -56,7 +56,7 @@ function CartItem({
                         className="product-clickable-area"
                         style={{ textDecoration: 'none' }}
                     >
-                        <h3><b>{name}</b></h3>
+                        <h4><b>{name}</b></h4>
                     </Link>
                     <p>Size {size} • {formatIdToName(category)}</p>
                 </div>
