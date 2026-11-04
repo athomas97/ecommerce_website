@@ -92,16 +92,9 @@ function Catalog({parent_cart, onCartChange}) {
                     />
                     <div>
                         {searchQuery.trim() && (
-                            <div
-                                style={{
-                                    textAlign: 'left',
-                                    marginBottom: '15px',
-                                }}
-                            >
+                            <div className="search-results">
                                 <h4>Search Results</h4>
-                                <p>
-                                    Showing {products_set.length} items for "{searchQuery}"
-                                </p>
+                                <p>Showing {products_set.length} items for "{searchQuery}"</p>
                             </div>
                         )}
                         <div id="catalog-product-grid">

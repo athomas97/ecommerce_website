@@ -136,7 +136,7 @@ function Checkout({parent_cart, onCartChange}) {
                         >
                             <h3>Checkout</h3>
                         </button>
-                        <div className="warning-modal-wrapper">
+                        <div className="modal-wrapper">
                             <div
                                 className={isOpen === true ? "warning-modal is_open" : "warning-modal"}
                             >
