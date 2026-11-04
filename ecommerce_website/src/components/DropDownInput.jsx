@@ -6,7 +6,9 @@ function DropDownInput({
     options,
     onChangeValue,
 }) {
-    const [selectedValue, setSelectedValue] = useState('');
+    const [selectedValue, setSelectedValue] = useState(
+        formatNameToId(Object.values(options)[0])
+    );
 
     // Callback function
     const handleDropdownChange = (event) => {
