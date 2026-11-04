@@ -546,7 +546,7 @@ button {
   }
 }
 
-#remove-text {
+.red-underline-text {
   color: var(--primary-color);
   text-decoration: underline;
 
