@@ -64,52 +64,54 @@ function FilterBar({ onFilterChange }) {
                 <h4><b>Filter</b></h4>
                 <img src={ICONS.MENU}/>
             </div>
-            <div
-                id="filter-container"
-                className={isOpen === true ? "flex-col is_open" : "flex-col"}
-            >
-                <div className="filter-bar-header">
-                    <h4
-                        id="close-icon"
-                        className="icon-hover"
-                        onClick={(event) => handleOpenFilterBar(false)}
-                    >
-                        X
-                    </h4>
-                    <div>
-                        <h2 className="align-txt-left"><b>Filter</b></h2>
-                        <h5
-                            className="red-underline-text product-clickable-area align-txt-left"
-                            onClick={handleResetFilters}
+            <div className="modal-wrapper filter-modal-wrapper">
+                <div
+                    id="filter-container"
+                    className={isOpen === true ? "flex-col is_open" : "flex-col"}
+                >
+                    <div className="filter-bar-header">
+                        <h4
+                            id="close-icon"
+                            className="icon-hover"
+                            onClick={(event) => handleOpenFilterBar(false)}
                         >
-                            Clear
-                        </h5>
+                            X
+                        </h4>
+                        <div>
+                            <h2 className="align-txt-left"><b>Filter</b></h2>
+                            <h5
+                                className="red-underline-text product-clickable-area align-txt-left"
+                                onClick={handleResetFilters}
+                            >
+                                Clear
+                            </h5>
+                        </div>
                     </div>
+                    <DropDownInput
+                        key={`sort-${resetKey}`}
+                        label_text="Sort By"
+                        options={SORT_BY}
+                        onChangeValue={handleFilterChange}
+                    />
+                    <PriceRangeFilter
+                        key={`price-${resetKey}`}
+                        onChangeValue={handleFilterChange}
+                    />
+                    <MultiSelectDropDown
+                        key={`category-${resetKey}`}
+                        btnTxt="Category"
+                        filterKey="category"
+                        checkboxes={createCheckboxes(PRODUCT_CATEGORY)}
+                        onChangeValue={handleFilterChange}
+                    />
+                    <MultiSelectDropDown
+                        key={`availability-${resetKey}`}
+                        btnTxt="Availability"
+                        filterKey="availability"
+                        checkboxes={createCheckboxes(AVAILABILITY)}
+                        onChangeValue={handleFilterChange}
+                    />
                 </div>
-                <DropDownInput
-                    key={`sort-${resetKey}`}
-                    label_text="Sort By"
-                    options={SORT_BY}
-                    onChangeValue={handleFilterChange}
-                />
-                <PriceRangeFilter
-                    key={`price-${resetKey}`}
-                    onChangeValue={handleFilterChange}
-                />
-                <MultiSelectDropDown
-                    key={`category-${resetKey}`}
-                    btnTxt="Category"
-                    filterKey="category"
-                    checkboxes={createCheckboxes(PRODUCT_CATEGORY)}
-                    onChangeValue={handleFilterChange}
-                />
-                <MultiSelectDropDown
-                    key={`availability-${resetKey}`}
-                    btnTxt="Availability"
-                    filterKey="availability"
-                    checkboxes={createCheckboxes(AVAILABILITY)}
-                    onChangeValue={handleFilterChange}
-                />
             </div>
         </div>
     );

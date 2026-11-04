@@ -324,6 +324,14 @@
   width: 100%;
 }
 
+.modal-wrapper.filter-modal-wrapper {
+  display: contents;
+}
+
+.filter-modal-wrapper::after {
+  display: none;
+}
+
 /* Sort Bar */
 #sorting-bar {
   display: flex;
@@ -960,6 +968,9 @@ button {
     justify-content: space-between;
     margin-bottom: 10px;
   }
+  .filter-bar-header h2 {
+    margin-bottom: 0;
+  }
   .filter-btn {
     cursor: pointer;
     width: 100%;
@@ -979,16 +990,24 @@ button {
     top: 0;
     bottom: 0;
     left: 0;
-    right: 0;
-    width: 70%;
-    z-index: 100;
+    width: 80%;
+    z-index: 1;
     padding: var(--spacing-3);
-    box-shadow: 300px 0px rgba(0, 0, 0, 0.7);
     background-color: var(--light-beige);
     overflow-y: auto;
   }
   body:has(#filter-container.is_open) {
     overflow: hidden;
+  }
+  .filter-modal-wrapper:has(#filter-container.is_open) {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+  }
+  .filter-modal-wrapper:has(#filter-container.is_open)::after {
+    display: block;
+    z-index: 0;
   }
 
   /* Product PG */
