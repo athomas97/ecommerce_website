@@ -619,6 +619,12 @@ button {
   width: 100%;
 }
 
+#catalog-product-grid #no-results {
+  grid-column: 1 / -1;
+  align-items: center;
+  text-align: center;
+}
+
 /* Product Page */
 #product-container {
   display: flex;
