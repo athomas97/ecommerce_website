@@ -48,13 +48,21 @@ function FilterBar({ onFilterChange }) {
 
     return (
         <div id="filter-bar">
-            <h4 className="filter-title"><b>Filter</b></h4>
+            <div className="filter-title">
+                <h4><b>Filter</b></h4>
+                <h5
+                    className="red-underline-text product-clickable-area align-txt-left"
+                    onClick={handleResetFilters}
+                >
+                    Clear
+                </h5>
+            </div>
             <div
-                className="filter-title filter-btn secondary-btn"
+                className="filter-btn secondary-btn"
                 onClick={(event) => handleOpenFilterBar(true)}
             >
                 <h4><b>Filter</b></h4>
-                <img id="menu-icon" src={ICONS.MENU}/>
+                <img src={ICONS.MENU}/>
             </div>
             <div
                 id="filter-container"
@@ -68,14 +76,16 @@ function FilterBar({ onFilterChange }) {
                     >
                         X
                     </h4>
-                    <h2 className="align-txt-left"><b>Filter</b></h2>
+                    <div>
+                        <h2 className="align-txt-left"><b>Filter</b></h2>
+                        <h5
+                            className="red-underline-text product-clickable-area align-txt-left"
+                            onClick={handleResetFilters}
+                        >
+                            Clear
+                        </h5>
+                    </div>
                 </div>
-                <h5
-                    className="red-underline-text product-clickable-area align-txt-left"
-                    onClick={handleResetFilters}
-                >
-                    Clear Filters
-                </h5>
                 <DropDownInput
                     key={`sort-${resetKey}`}
                     label_text="Sort By"
