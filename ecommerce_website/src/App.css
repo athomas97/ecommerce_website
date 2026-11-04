@@ -867,6 +867,7 @@ button {
       grid-area: search-toggle;
       align-items: center;
       justify-content: center;
+      margin-right: var(--spacing-2);
       padding: 0;
       background: transparent;
     }
