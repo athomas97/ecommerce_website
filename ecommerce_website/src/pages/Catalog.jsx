@@ -12,6 +12,11 @@ import FilterBar from '../components/FilterBar'
 function Catalog({parent_cart, onCartChange}) {
     const [searchParams] = useSearchParams();
     const searchQuery = searchParams.get('search') ?? '';
+
+    useEffect(() => {
+        document.title = 'My Closet- Catalog';
+    }, []);
+
     const [filters, setFilters] = useState({
         "sort_by": (Object.values(SORT_BY)[0]).toLowerCase(),
         "name": searchQuery,
