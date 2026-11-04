@@ -1,29 +1,39 @@
 # My Closet 👚
 
-A responsive e-commerce storefront built with React designed as second hand clothing store.
-
-This portfolio project was built to learn React. It is a frontend application that uses a small, separately hosted backend to simulate Stripe payments.
+A responsive e-commerce storefront built with React and designed as second hand clothing store.
+This is a portfolio project built to learn React. It is a frontend application that uses a small, separately hosted backend to simulate Stripe payments.
 
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
 ![HTML5](https://img.shields.io/badge/HTML5-markup-E34F26?logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-styles-1572B6?logo=css3&logoColor=white)
 
-### Features
-#### Viewing the Products
+## 🌐 Live Site
+**[athomas97.github.io/ecommerce_website/](https://athomas97.github.io/ecommerce_website/)**
+
+## Features
+### Viewing the Products
 - Product catalog with search, filters, and sorting
 - Catalog displays a no-results message when search or filters find no products
 - Out-of-stock products are clearly marked and cannot be added to the cart
-#### Maining the Shopping Cart
+### Maining the Shopping Cart
 - Persistent shopping cart with options to add, update, and remove items
 - The checkout page has real-time progress indicator for how far away the customer is from unlocking free shipping
 - Checkout displays an empty-cart message when the cart has no items
-#### Checkout Process
+### Checkout Process
 - Stripe Sandbox checkout simulation; no real payments are processed
 - Order confirmation displays the payment status after checkout
 - Cart contents are cleared after successful payment
 
-## 🌐 Live Site
-**[athomas97.github.io/ecommerce_website/](/https://athomas97.github.io/ecommerce_website/)**
+> [!WARNING]
+> Do not enter real personal or payment information during checkout. Use the Stripe test details below:
+>
+> - **Email:** Any fictional email address
+> - **Card number:** `4242 4242 4242 4242`
+> - **Cardholder name:** Any fictional name
+> - **Expiry:** `12/34`
+> - **CVC:** `123`
+>
+> These details are for Stripe test mode only and do not process a real payment.
 
 ## Tech stack
 
