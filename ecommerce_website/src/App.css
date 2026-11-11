@@ -81,10 +81,6 @@
     transform: translate(-50%, -50%);
     z-index: -1;
   }
-
-  &:hover::after {
-    opacity: 0.2;
-  }
 }
 
 #close-icon {
@@ -99,10 +95,6 @@
 
 .add-to-cart p {
   opacity: 0;
-}
-
-.add-to-cart:hover p {
-  opacity: 1;
 }
 
 .cart-icon {
@@ -187,24 +179,6 @@
   max-height: 300px;
   object-fit: contain;
   transform: scale(0.9);
-}
-
-.product-clickable-area:hover .product-img {
-  transform: scale(1);
-}
-
-.product-clickable-area:hover .product-img-container::after,
-.product-clickable-area.product-img-container:hover::after {
-  opacity: 0.2;
-}
-
-.product-clickable-area:hover .sold-out {
-  opacity: 1;
-}
-
-.product-clickable-area:hover h3,
-.product-header:hover h3 {
-  text-decoration: underline;
 }
 
 .product-img-container {
@@ -368,13 +342,6 @@ input:not(.price-input-container input, #search-bar input, #quantity-input input
   background-color: var(--white);
 }
 
-select:hover,
-#search-bar:hover,
-.price-input-container:hover,
-.quantity-input-container:hover {
-    outline: 2px solid var(--dark-brown);
-}
-
 /* Multi Select DropDown */
 .checkbox-wrapper {
   display: flex;
@@ -386,10 +353,6 @@ select:hover,
     gap: var(--spacing-2);
     width: 100%;
     padding: 10px 8px;
-  }
-
-  &:hover label {
-    background-color: rgb(218, 174, 134, 0.2);
   }
 }
 
@@ -503,10 +466,6 @@ input[type=number] {
 .quantity-input-container button {
   min-width: 45px;
   background-color: var(--white);
-
-  &:hover {
-    background-color: var(--gray-2);
-  }
 }
 
 #quantity-input {
@@ -543,36 +502,17 @@ button {
 .primary-btn {
   color: var(--white);
   background-color: var(--primary-color);
-
-  &:hover {
-    background-color: var(--primary-dark-color);
-  }
 }
 
 .secondary-btn {
   border: 1px solid var(--gray-3);
   color: var(--dark-brown);
   background-color: var(--white);
-
-  &:hover {
-    outline: 2px solid var(--dark-brown);
-  }
 }
 
 .red-underline-text {
   color: var(--primary-color);
   text-decoration: underline;
-
-  &:hover {
-     color: var(--primary-dark-color);
-  }
-}
-
-.product-clickable-area,
-.clickable, select, button {
-  &:hover {
-    cursor: pointer;
-  }
 }
 
 .disabled {
@@ -1033,5 +973,56 @@ button {
 
   .button-container {
     flex-direction: column;
+  }
+}
+
+/* Hover Animations */
+@media (hover: hover) {
+  .icon-hover:hover::after {
+    opacity: 0.2;
+  }
+  .add-to-cart:hover p {
+    opacity: 1;
+  }
+  .product-clickable-area:hover .product-img {
+    transform: scale(1);
+  }
+  .product-clickable-area:hover .product-img-container::after,
+  .product-clickable-area.product-img-container:hover::after {
+    opacity: 0.2;
+  }
+  .product-clickable-area:hover .sold-out {
+    opacity: 1;
+  }
+  .product-clickable-area:hover h3,
+  .product-header:hover h3 {
+    text-decoration: underline;
+  }
+  select:hover,
+  #search-bar:hover,
+  .price-input-container:hover,
+  .quantity-input-container:hover {
+    outline: 2px solid var(--dark-brown);
+  }
+  .checkbox-wrapper:hover label {
+    background-color: rgb(218, 174, 134, 0.2);
+  }
+  .quantity-input-container:hover {
+    background-color: var(--gray-2);
+  }
+  .primary-btn:hover {
+    background-color: var(--primary-dark-color);
+  }
+  .secondary-btn:hover {
+    outline: 2px solid var(--dark-brown);
+  }
+  .red-underline-text:hover {
+    color: var(--primary-dark-color);
+  }
+  .product-clickable-area,
+  .clickable, select, button {
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
