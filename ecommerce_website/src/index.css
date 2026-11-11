@@ -4,9 +4,15 @@ body {
   background-color: var(--light-beige);
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 #root {
   /* width: 1126px; */
-  padding: 20px 60px;
+  padding: 20px clamp(16px, 5vw, 60px);
   max-width: 100%;
   margin: 0 auto;
   text-align: center;

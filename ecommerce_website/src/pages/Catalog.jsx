@@ -12,6 +12,11 @@ import FilterBar from '../components/FilterBar'
 function Catalog({parent_cart, onCartChange}) {
     const [searchParams] = useSearchParams();
     const searchQuery = searchParams.get('search') ?? '';
+
+    useEffect(() => {
+        document.title = 'My Closet- Catalog';
+    }, []);
+
     const [filters, setFilters] = useState({
         "sort_by": (Object.values(SORT_BY)[0]).toLowerCase(),
         "name": searchQuery,
@@ -85,32 +90,40 @@ function Catalog({parent_cart, onCartChange}) {
                         numProducts={products_set.length}
                         onFilterChange={handleFilterChange}
                     />
-                    <div id="catalog-product-grid">
-                        {sorted_products.length > 0 ? (
-                            sorted_products.map((product) => (
-                                <ProductCard
-                                    product_id={product.product_id}
-                                    key={product.name}
-                                    name={product.name}
-                                    img_path={product.img_path}
-                                    cost={product.cost}
-                                    size={product.size}
-                                    category={product.category}
-                                    availability={product.availability}
-                                    onCartChange={handleCartChange}
-                                />
-                            ))
-                        ) : (
-                            <div id="no-results" className="center">
-                                <img
-                                    className="icon-big"
-                                    src={ICONS.NO_RESULTS}
-                                />
-                                <div>
-                                    <p>No Products Found</p>
-                                </div>
+                    <div>
+                        {searchQuery.trim() && (
+                            <div className="search-results">
+                                <h4>Search Results</h4>
+                                <p>Showing {products_set.length} items for "{searchQuery}"</p>
                             </div>
                         )}
+                        <div id="catalog-product-grid">
+                            {sorted_products.length > 0 ? (
+                                sorted_products.map((product) => (
+                                    <ProductCard
+                                        product_id={product.product_id}
+                                        key={product.name}
+                                        name={product.name}
+                                        img_path={product.img_path}
+                                        cost={product.cost}
+                                        size={product.size}
+                                        category={product.category}
+                                        availability={product.availability}
+                                        onCartChange={handleCartChange}
+                                    />
+                                ))
+                            ) : (
+                                <div id="no-results" className="center">
+                                    <img
+                                        className="icon-big"
+                                        src={ICONS.NO_RESULTS}
+                                    />
+                                    <div>
+                                        <p>No Products Found</p>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>

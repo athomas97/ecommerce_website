@@ -70,8 +70,7 @@ function CartItem({
                     onChangeValue={handleQuantityChange}
                 />
                 <p
-                    id="remove-text"
-                    className="product-clickable-area"
+                    className="red-underline-text product-clickable-area"
                     onClick={() => handleRemoveFromCart(name)}
                 >
                     Remove

@@ -1,11 +1,15 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { calculatePercentLeftForFreeShipping } from '/src/utils/Common.utils'
 
 import { CHECKOUT_API_URL, ICONS } from '/src/constants'
 import CartItem from '../components/CartItem'
 
 function Checkout({parent_cart, onCartChange}) {
+    useEffect(() => {
+        document.title = 'My Closet- Checkout';
+    }, []);
+
     // Load items from cart
     const [cart, updateCart] = useState(parent_cart);
     let subtotal = Object.values(cart).reduce((total, product) => total + (product.cost * product.quantity), 0);
@@ -132,7 +136,7 @@ function Checkout({parent_cart, onCartChange}) {
                         >
                             <h3>Checkout</h3>
                         </button>
-                        <div className="warning-modal-wrapper">
+                        <div className="modal-wrapper">
                             <div
                                 className={isOpen === true ? "warning-modal is_open" : "warning-modal"}
                             >

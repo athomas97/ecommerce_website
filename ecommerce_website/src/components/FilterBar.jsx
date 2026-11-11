@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { createCheckboxes } from '../utils/Common.utils'
+import { createCheckboxes, createFilters } from '../utils/Common.utils'
 import { SORT_BY, AVAILABILITY, PRODUCT_CATEGORY } from '../constants'
 import { ICONS } from '/src/constants'
 
@@ -9,10 +9,21 @@ import MultiSelectDropDown from './MultiSelectDropDown'
 
 function FilterBar({ onFilterChange }) {
     const [isOpen, setIsOpen] = useState(false);
+    const [resetKey, setResetKey] = useState(0);
 
     // Callback functions
     const handleFilterChange = (nextRange) => {
         onFilterChange?.(nextRange);
+    };
+
+    const handleResetFilters = () => {
+        onFilterChange?.({
+            sort_by: Object.values(SORT_BY)[0].toLowerCase(),
+            price: { min: '', max: '' },
+            category: createFilters(PRODUCT_CATEGORY),
+            availability: createFilters(AVAILABILITY),
+        });
+        setResetKey((key) => key + 1);
     };
 
     const handleOpenFilterBar = (value) => {
@@ -37,48 +48,70 @@ function FilterBar({ onFilterChange }) {
 
     return (
         <div id="filter-bar">
-            <h4 className="filter-title"><b>Filter</b></h4>
+            <div className="filter-title">
+                <h4><b>Filter</b></h4>
+                <h5
+                    className="red-underline-text product-clickable-area align-txt-left"
+                    onClick={handleResetFilters}
+                >
+                    Clear
+                </h5>
+            </div>
             <div
-                className="filter-title filter-btn secondary-btn"
+                className="filter-btn secondary-btn"
                 onClick={(event) => handleOpenFilterBar(true)}
             >
                 <h4><b>Filter</b></h4>
-                <img id="menu-icon" src={ICONS.MENU}/>
+                <img src={ICONS.MENU}/>
             </div>
-            <div
-                id="filter-container"
-                className={isOpen === true ? "flex-col is_open" : "flex-col"}
-            >
-                <div className="filter-bar-header">
-                    <h4
-                        id="close-icon"
-                        className="icon-hover"
-                        onClick={(event) => handleOpenFilterBar(false)}
-                    >
-                        X
-                    </h4>
-                    <h2 className="align-txt-left"><b>Filter</b></h2>
+            <div className="modal-wrapper filter-modal-wrapper">
+                <div
+                    id="filter-container"
+                    className={isOpen === true ? "flex-col is_open" : "flex-col"}
+                >
+                    <div className="filter-bar-header">
+                        <h4
+                            id="close-icon"
+                            className="icon-hover"
+                            onClick={(event) => handleOpenFilterBar(false)}
+                        >
+                            X
+                        </h4>
+                        <div>
+                            <h2 className="align-txt-left"><b>Filter</b></h2>
+                            <h5
+                                className="red-underline-text product-clickable-area align-txt-left"
+                                onClick={handleResetFilters}
+                            >
+                                Clear
+                            </h5>
+                        </div>
+                    </div>
+                    <DropDownInput
+                        key={`sort-${resetKey}`}
+                        label_text="Sort By"
+                        options={SORT_BY}
+                        onChangeValue={handleFilterChange}
+                    />
+                    <PriceRangeFilter
+                        key={`price-${resetKey}`}
+                        onChangeValue={handleFilterChange}
+                    />
+                    <MultiSelectDropDown
+                        key={`category-${resetKey}`}
+                        btnTxt="Category"
+                        filterKey="category"
+                        checkboxes={createCheckboxes(PRODUCT_CATEGORY)}
+                        onChangeValue={handleFilterChange}
+                    />
+                    <MultiSelectDropDown
+                        key={`availability-${resetKey}`}
+                        btnTxt="Availability"
+                        filterKey="availability"
+                        checkboxes={createCheckboxes(AVAILABILITY)}
+                        onChangeValue={handleFilterChange}
+                    />
                 </div>
-                <DropDownInput
-                    label_text="Sort By"
-                    options={SORT_BY}
-                    onChangeValue={handleFilterChange}
-                />
-                <PriceRangeFilter
-                    onChangeValue={handleFilterChange}
-                />
-                <MultiSelectDropDown
-                    btnTxt="Category"
-                    filterKey="category"
-                    checkboxes={createCheckboxes(PRODUCT_CATEGORY)}
-                    onChangeValue={handleFilterChange}
-                />
-                <MultiSelectDropDown
-                    btnTxt="Availability"
-                    filterKey="availability"
-                    checkboxes={createCheckboxes(AVAILABILITY)}
-                    onChangeValue={handleFilterChange}
-                />
             </div>
         </div>
     );
