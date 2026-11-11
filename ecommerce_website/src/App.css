@@ -129,6 +129,23 @@
   width: 100%;
 }
 
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #e7ddd4;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #806d62;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9b8476;
+}
+
 /* Product Card */
 .product-card {
   padding: var(--spacing-2);
@@ -575,11 +592,6 @@ button {
   grid-column: 1 / -1;
   align-items: center;
   text-align: center;
-}
-
-.search-results {
-  text-align: left;
-  margin-bottom: 15px;
 }
 
 /* Product Page */

@@ -15,7 +15,7 @@ This is a portfolio project built to learn React. It is a frontend application t
 - Product catalog with search, filters, and sorting
 - Catalog displays a no-results message when search or filters find no products
 - Out-of-stock products are clearly marked and cannot be added to the cart
-### Maining the Shopping Cart
+### Maintaining the Shopping Cart
 - Persistent shopping cart with options to add, update, and remove items
 - The checkout page has real-time progress indicator for how far away the customer is from unlocking free shipping
 - Checkout displays an empty-cart message when the cart has no items
